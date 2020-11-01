@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Hive Discover
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!--     <script src="https://kit.fontawesome.com/07b682ab30.js" crossorigin="anonymous"></script>-->
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/loading-animator.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+</head>
+
+<body class="login-page sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="/" rel="tooltip">
+                    Hive Discover
+                </a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar top-bar"></span>
+                    <span class="navbar-toggler-bar middle-bar"></span>
+                    <span class="navbar-toggler-bar bottom-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation"
+                data-nav-image="../assets/img/blurred-image-1.jpg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="btn nav-link" onClick="reset_posts();">
+                            <i class="fa fa-retweet"></i>
+                            <p>Refresh</p>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="View on GitHub" data-placement="bottom"
+                            href="https://github.com/Christopher-06/Hive-Discover" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <p class="d-lg-none d-xl-none">Github</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="page-header clear-filter" filter-color="orange">
+        <div class="page-header-image" style="background-image:url(assets/img/header.jpg)"></div>
+        <div class="content">
+            <div class="container">
+
+                <!-- Loading Animator -->
+                <div id="loading_animation">
+                    <div class="lds-roller">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <p>Loading</p>
+                </div>
+
+                <!-- Posts -->
+                <div id="posts" style="display: none;">
+                    <div id="post_list">
+
+                    </div>
+                </div>
+
+                <!-- Post Holder -->
+                <div id="post_holder" style="display: none">
+                    <div class="card">
+                        <div class="card-body">
+                            <table>
+                                <tr>
+                                    <th>
+                                        <span style="display: inline-block; height: 77px; width: 130px">
+                                            <picture style="width: 100%">
+                                                <img src="{{ImageSource}}" onclick="OpenInNewTab('{{HiveURL}}');"
+                                                    style="display: inline-block; max-height: 100%; max-width: 100%" />
+                                            </picture>
+                                            <br />
+                                            <a href="https://hive.blog/@{{Author}}" target="_blank">{{Author}}</a>
+                                        </span>
+                                    </th>
+                                    <th onclick="OpenInNewTab('{{HiveURL}}');">
+                                        <div>
+                                            <h4 class="card-title"
+                                                style="overflow: hidden; display: -webkit-box; text-overflow: ellipsis; -webkit-line-clamp: 1; -webkit-box-orient: vertical; color: black">
+                                                {{Title}}
+                                            </h4>
+                                            <p class="card-text"
+                                                style="overflow: hidden; display: -webkit-box; text-overflow: ellipsis; -webkit-line-clamp: 3; -webkit-box-orient: vertical; color: black;">
+                                                {{Body}}
+                                            </p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class=" container ">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="https://hive.blog/@action-chain" target="_blank">
+                                Action Chain
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about-us.html">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/de_impressum.html">
+                                Impressum
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright" id="copyright">
+                    &copy;
+                    <script>
+                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                    </script>, Coded by
+                    <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
+
+    <script src="assets/js/config.js" type="text/javascript"></script>
+    <script src="assets/js/cookie-manager.js" type="text/javascript"></script>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <script src="assets/js/plugins/bootstrap-switch.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+    <script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/now-ui-kit.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var username;
+        if (checkCookie("username") == false)
+            window.location.replace("index.html");
+        else
+            username = getCookie("username");
+
+
+        window.addEventListener("load", get_posts);
+        function get_posts() {
+            $.getScript(SERVER_DOMAIN + "/js/get_interesting_posts?username=" + username, function () {
+                if (cmd == "succes") {
+                    if (posts.length == 1 | posts[0] == "") {
+                        // Array be like: [""]
+                        // No posts avaiblabe --> Retry later
+                        setTimeout(get_posts, 500);
+                        return;
+                    }
+
+                    for (var i = 0; i < posts.length; i++) {
+                        author = posts[i].split('/')[0];
+                        permlink = posts[i].split('/')[1];
+
+                        set_post(author, permlink);
+                    }
+                } else {
+                    // Error
+                    alert("Something went wrong at the server side. Please contact the support!");
+                }
+            });
+        }
+
+        function set_post(author, permlink) {
+            hivejs.api.getContent(author, permlink, function (err, result) {
+                if (result) {
+                    var template = Handlebars.compile(document.getElementById('post_holder').innerHTML);
+                    var metadata = JSON.parse(result['json_metadata']);
+
+                    //body
+                    div = document.createElement('div');
+                    div.innerHTML = result["body"];
+                    var body = process_markdown(result, div.innerText);
+
+                    //image
+                    var ImageSource = "";//assets/img/default-avatar.png
+                    try {
+                        var images = metadata["image"];
+                        if (images.length > 0)
+                            ImageSource = images[0];
+                    } catch { }
+
+                    var json = {
+                        Title: result["title"],
+                        Body: body,
+                        ImageSource: ImageSource,
+                        Author: result['author'],
+                        HiveURL: "https://hive.blog" + result["url"]
+                    }
+
+                    document.getElementById("post_list").innerHTML += template(json);
+
+                    document.getElementById("loading_animation").style = "display: none";
+                    document.getElementById("posts").style = "";
+                } else {
+                    // Get
+                    console.log("Reget");
+                    set_post(author, permlink);
+                }
+            });
+        }
+
+        function reset_posts() {
+            // Set loading
+            document.getElementById("loading_animation").style = "";
+            document.getElementById("posts").style = "display: none";
+
+            // Clear post_list
+            document.getElementById("post_list").innerHTML = "";
+
+            // Get new ones
+            get_posts()
+        }
+
+        function process_markdown(post, body) {
+            try {
+                metadata = JSON.parse(post['json_metadata']);
+
+                //Remove brackets
+                body = body.replace(/ *\[[^\]]*]/g, '');
+
+
+                images = metadata["image"];
+                for (var i = 0; i < images.length; i++) {
+                    body = body.replace("!(" + images[i] + ")", '');
+                }
+                links = metadata["links"];
+                for (var i = 0; i < links.length; i++) {
+                    body = body.replace("(" + links[i] + ")", '');
+                }
+
+                while (body.indexOf("###") > -1)
+                    body = body.replace("###", "##");
+
+                while (body.indexOf("##") > -1)
+                    body = body.replace("##", "");
+
+                body = body.replace("\n\n\n", "\r")
+            } catch { }
+            return body;
+        }
+
+        function OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
+        function openSettingsModal() {
+            $('#exampleModal').modal();
+        }
+
+    </script>
+</body>
+
+</html>
