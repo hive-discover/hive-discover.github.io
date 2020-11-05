@@ -48,6 +48,12 @@
                         </button>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/account.html">
+                            <i class="fa fa-user"></i>
+                            <p class="d-lg-none d-xl-none">Your Account</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" rel="tooltip" title="View on GitHub" data-placement="bottom"
                         href="https://github.com/Hive-Discover" target="_blank">
                             <i class="fab fa-github"></i>
@@ -180,9 +186,12 @@
         var username;
         if (checkCookie("username") == false)
             window.location.replace("index.html");
-        else
+        else{
             username = getCookie("username");
 
+            // Update profiler --> No need because the profiler is started automatically when the posts will be hold
+            //$.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+        }
 
         window.addEventListener("load", get_posts);
         function get_posts() {
