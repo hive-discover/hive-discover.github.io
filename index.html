@@ -161,8 +161,14 @@
 
     <script type="text/javascript">
 
-        if (checkCookie("username"))
-            document.getElementById("txt_username").value = getCookie("username");
+        var username = "";
+        if (checkCookie("username")){
+            username = getCookie("username");
+            document.getElementById("txt_username").value = username;
+
+            // Update profiler
+            $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+        }
 
         function OnClick_GetStarted() {
             var username = document.getElementById('txt_username').value;
