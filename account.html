@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="assets/img/Logo/icon_only.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Hive Discover
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+        name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/loading-animator.css" rel="stylesheet" />
+    <link href="assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+</head>
+
+<body class="login-page sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" href="/" rel="tooltip">
+                   Hive Discover
+                </a>
+                <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar top-bar"></span>
+                    <span class="navbar-toggler-bar middle-bar"></span>
+                    <span class="navbar-toggler-bar bottom-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation"
+                data-nav-image="../assets/img/blurred-image-1.jpg">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feed.html">
+                            <i class="fas fa-search"></i>
+                            <p class="d-lg-none d-xl-none">Your Account</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="View on GitHub" data-placement="bottom"
+                        href="https://github.com/Hive-Discover" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <p class="d-lg-none d-xl-none">Github</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="page-header clear-filter" filter-color="orange">
+        <div class="page-header-image" style=""></div><!-- background-image:url(assets/img/bg8.jpg) -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">Your Account</h2>
+                        <h5 class="description">Our selfmade AI thinks that these 10 topics fit perfectly to you!</h5>
+                    </div>
+                </div>
+
+                <br />
+
+                <div id="chart_container" style="display: none;">
+                    <div id="chart_div" style="margin: auto;"></div>
+            </div>
+                <!-- Loading -->
+                <div class="lds-roller" id="loading_animation">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class=" container ">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="https://hive.blog/@action-chain" target="_blank">
+                                Action Chain
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about-us.html">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/de_impressum.html">
+                                Impressum
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright" id="copyright">
+                    &copy;
+                    <script>
+                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                    </script>, Coded by
+                    <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
+
+    <script src="assets/js/config.js" type="text/javascript"></script>
+    <script src="assets/js/cookie-manager.js" type="text/javascript"></script>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+    <script src="assets/js/plugins/bootstrap-switch.js"></script>
+    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+    <script src="assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/now-ui-kit.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var username;
+        if (checkCookie("username") == false)
+            window.location.replace("index.html");
+        else{
+            username = getCookie("username");
+
+            // Update profiler
+            $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+        }
+        
+           // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+        // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(get_data);
+
+            function get_data() {
+                $.getScript(SERVER_DOMAIN + "/js/get_author_category?author=" + username, function () {
+                    if (cmd == "succes") {                       
+
+                    // process data
+                     var data = [["Topic", "Value"]]
+                     for(var i=0; i<CATEGORIES.length; i++){
+                         data.push([CATEGORIES[i], Math.floor(category[i] * 10000000)]);
+                     }
+             
+                     // Set chart options
+                     var options = {
+                            backgroundColor: "transparent",
+                            enableInteractivity: false,
+                            height: 600,
+                            pieHole: 0.1
+                        };
+
+                        document.getElementById("loading_animation").style = "display: none";
+                        document.getElementById("chart_container").style = "";
+
+                        // Instantiate and draw our chart, passing in some options.
+                        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                        chart.draw(google.visualization.arrayToDataTable(data), options);
+
+                        
+
+                    } else {
+                        // Error
+                        alert("Something went wrong at the server side. Please contact the support!");
+                    }
+                });
+            }
+
+
+        function OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+    </script>
+</body>
+
+</html>
