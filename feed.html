@@ -48,6 +48,12 @@
                         </button>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="javascript:openSettingsModal();">
+                            <i class="fa fa-cog"></i>
+                            <p class="d-lg-none d-xl-none">Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/account.html">
                             <i class="fa fa-user"></i>
                             <p class="d-lg-none d-xl-none">Your Account</p>
@@ -160,6 +166,43 @@
         </footer>
     </div>
 
+<!-- Settings Modal -->
+<div class="modal fade" id="settigns_Modal" tabindex="-1" role="dialog" aria-labelledby="settigns_ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="settigns_ModalLabel">Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>ATTENTION: Any changes will be stored in your Cookies</h6>
+          <hr />
+
+              <!-- Post Explorer-->
+              <h4>Where do you want to read the posts?</h4>
+              <div class="btn-group">
+                <button type="button" class="btn btn-success" id="btn_post_viewer">Hive</button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="javascript: setSetting('post_viewer', 'Hive');">Hive</a>
+                  <a class="dropdown-item" href="javascript: setSetting('post_viewer', 'PeakD');">PeakD</a>
+                  <a class="dropdown-item" href="javascript: setSetting('post_viewer', 'LeoFinance');">LeoFinance</a>
+                </div>
+              </div>
+
+              <hr />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
@@ -191,7 +234,7 @@
 
             // Update profiler --> No need because the profiler is started automatically when the posts will be hold
             //$.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
-        }
+        }       
 
         window.addEventListener("load", get_posts);
         function get_posts() {
@@ -229,19 +272,31 @@
                     var body = process_markdown(result, div.innerText);
 
                     //image
-                    var ImageSource = "";//assets/img/default-avatar.png
+                    var ImageSource = "";
                     try {
                         var images = metadata["image"];
                         if (images.length > 0)
                             ImageSource = images[0];
                     } catch { }
 
+                    // URL
+                    var hivURL = "https://hive.blog" + result["url"];
+                    if(checkCookie("post_viewer"))
+                    {
+                        var value = getCookie("post_viewer");
+
+                        if(value == "PeakD")
+                            hivURL = "https://peakd.com" + result["url"];
+                        if(value == "LeoFinance")
+                            hivURL = "https://leofinance.io" + result["url"];
+                    }
+
                     var json = {
                         Title: result["title"],
                         Body: body,
                         ImageSource: ImageSource,
                         Author: result['author'],
-                        HiveURL: "https://hive.blog" + result["url"]
+                        HiveURL: hivURL
                     }
 
                     document.getElementById("post_list").innerHTML += template(json);
@@ -302,7 +357,18 @@
         }
 
         function openSettingsModal() {
-            $('#exampleModal').modal();
+            if(checkCookie("post_viewer"))
+                document.getElementById("btn_post_viewer").innerText = getCookie("post_viewer");
+
+            $('#settigns_Modal').modal();
+        }
+
+        function setSetting(type, value){
+            setCookie(type, value, 30);
+
+            // Update
+            reset_posts()
+            openSettingsModal();
         }
 
     </script>
