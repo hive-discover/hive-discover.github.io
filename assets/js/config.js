@@ -1,1 +1,1 @@
-var SERVER_DOMAIN = "http://192.168.178.20:8000";
+var SERVER_DOMAIN = "https://192.168.178.20:8000";
