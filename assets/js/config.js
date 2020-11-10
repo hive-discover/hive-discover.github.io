@@ -1,1 +1,1 @@
-var SERVER_DOMAIN = "http://hive-discoverjs.hopto.org";
+var SERVER_DOMAIN = "https://hive-discoverjs.hopto.org";
