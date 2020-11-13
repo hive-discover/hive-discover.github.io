@@ -66,6 +66,7 @@
                     <div class="col-md-8 ml-auto mr-auto text-center">
                         <h2 class="title">Your Account</h2>
                         <h5 class="description">Our selfmade AI thinks that these 10 topics fit perfectly to you!</h5>
+                        <h5 class="description">Does it fit? No - Then adjust it <a href="#adjust">here</a>!</h5>
                     </div>
                 </div>
 
@@ -87,38 +88,131 @@
                 </div>
             </div>
         </div>
-
-        <footer class="footer">
-            <div class=" container ">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="https://hive.blog/@action-chain" target="_blank">
-                                Action Chain
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/about-us.html">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/de_impressum.html">
-                                Impressum
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright" id="copyright">
-                    &copy;
-                    <script>
-                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                    </script>, Coded by
-                    <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
-                </div>
-            </div>
-        </footer>
     </div>
+
+
+    <div class="section" id="adjust">
+        <div class="container">
+        <h2 class="title">Adjust your preferences</h2>
+            <h5>Imagine you are reading a post. Which one do you thing is the most interesting? Just select the one, that fits the most to you! Anything you click, will optimize your profile. Be carefull</h5>
+        <div class="row" style="margin: auto">
+                <div class="card col-md-3 text-center" style="margin: auto;"  onclick="make_adjusting(1);">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <h6>Option 1</h6>
+                        </h4>
+                        <hr />
+                        <h5 id="lbl_option_1"></h5>
+                    </div>
+                </div>
+                <div class="card col-md-3 text-center" style="margin: auto" onclick="make_adjusting(2);">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <h6>Option 2</h6>
+                        </h4>
+                        <hr />
+                        <h5 id="lbl_option_2"></h5>
+                    </div>
+                </div>
+                <div class="card col-md-3 text-center" style="margin: auto" onclick="make_adjusting(3);">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <h6>Option 3</h6>
+                        </h4>
+                        <hr />
+                        <h5 id="lbl_option_3"></h5>
+                    </div>
+                </div>
+
+
+        
+        </div>
+        <hr/>
+        <div class="row" style="margin: auto">
+            <a class="btn btn-danger col-md-3 text-center" id="btn_adjust_reload" style="margin: auto" href="javascript: set_adjusting()">Nothing, next round</a>
+    </div>
+    </div>
+
+    <br /> <br /> <br />
+    <div class="container">
+        <h2 class="title">Set Categories to Zero</h2>
+            <h5>You can select categories and set them to Zero! Then they will be turned off for ever. Please be very carefull and do nothing wrong (Tip: Do only set a few to zero; only your hate categories)</h5>
+        <div class="row" style="margin: auto">
+                <div class="card col-md-5 text-center" style="margin: auto;" >
+                    <div class="card-body">
+                        <div id="setzero_interact" style="display: none;">
+                        <h4 class="card-title">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary" id="setzero_drop_category">Category</button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu" style="overflow: scroll; max-height: 350px;" id="dropdown_list_categories">
+                            <!--      <a class="dropdown-item" href="javascript:setzero_dropdown('action');">Action</a>  -->
+
+                                </div>
+                              </div>                                
+                        </h4>
+                    <hr/>
+                        <a href="javascript: OnClick_SetZero()" class="btn btn-info col-md-10">Set to Zero</a>
+                    </div>
+                    <h6 id="setzero_success" style="color: green; display: none">Successfully - Reload to see the difference</h6>
+                    </div>
+                </div>     
+        </div>
+        
+    </div>
+
+    <br /> <br /> <br />
+    <div class="container">
+        <h2 class="title">Delete my Profile</h2>
+            <h5>If you want, you can order to delete your profile. You can use it when ever you done a mistake and want to recalculate your profile. Just delete your profile and restart. Also, all Cookies and Preferences will be removed</h5>
+        <div class="row" style="margin: auto">
+                <div class="card col-md-5 text-center" style="margin: auto;" >
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <h6>Are you sure?</h6>                                            
+                        </h4>      
+                        <hr/>             
+                        <a href="javascript: OnClick_DeleteProfile()" class="btn btn-info col-md-10">Yes, delete my profile</a>   
+                    </div>
+                </div>     
+        </div>
+        
+    </div>
+</div>
+    
+            <footer class="footer">
+                <div class=" container ">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="https://hive.blog/@action-chain" target="_blank">
+                                    Action Chain
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/about-us.html">
+                                    About Us
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/de_impressum.html">
+                                    Impressum
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright" id="copyright">
+                        &copy;
+                        <script>
+                            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                        </script>, Coded by
+                        <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
+                    </div>
+                </div>
+            </footer>
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -144,29 +238,79 @@
 
     <script type="text/javascript">
 
-        var username;
-        if (checkCookie("username") == false)
-            window.location.replace("index.html");
-        else{
-            username = getCookie("username");
+            // Username checking
+            var username;
+            if (checkCookie("username") == false)
+                window.location.replace("index.html");
+            else{
+                username = getCookie("username");
 
-            // Update profiler
-            $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
-        }
-        
-           // Load the Visualization API and the corechart package.
-      google.charts.load('current', {'packages':['corechart']});
-        // Set a callback to run when the Google Visualization API is loaded.
-      google.charts.setOnLoadCallback(get_data);
+                // Update profiler
+                $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+            }
+                
+            // Chart data loading
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(get_data);
+
+            // Categorize
+            var set_to_zero_selected = "";
+            load_categories();
+
+            function OnClick_DeleteProfile(){
+                $.getScript(SERVER_DOMAIN + "/js/delete_user?username=" + username, function () {
+                    window.location.replace("index.html");
+                });   
+                deleteAllCookies();          
+            }
+
+            function setzero_dropdown(value){
+        document.getElementById('setzero_drop_category').innerHTML = value;
+        set_to_zero_selected = value;
+    }
+
+            function OnClick_SetZero(){
+                if(set_to_zero_selected == "")
+                {
+                    alert("Please select a category.");
+                    return;
+                }
+
+                document.getElementById("setzero_interact").style = "display: none;";
+
+                $.getScript(SERVER_DOMAIN + "/js/set_to_zero?username="+username+"&cat=" + set_to_zero_selected, function () {
+                    document.getElementById("setzero_interact").style = "";
+                    document.getElementById("setzero_success").style = "color: green;";
+                });               
+            }
+
+            function load_categories(){
+        $.getScript(SERVER_DOMAIN + "/js/get_categories", function () {
+            if (cmd == "succes") { 
+                set_adjusting();
+
+                //set categories for zero
+                for(var i=0;i<categories.length;i++){
+                    var item = document.createElement('a');
+                    item.className = "dropdown-item";
+                    item.href = "javascript:setzero_dropdown('" + categories[i] + "');";
+                    item.innerHTML = categories[i];
+
+                    document.getElementById("dropdown_list_categories").appendChild(item);
+                }
+
+                document.getElementById("setzero_interact").style = "";
+            } });
+    }
 
             function get_data() {
                 $.getScript(SERVER_DOMAIN + "/js/get_author_category?author=" + username, function () {
                     if (cmd == "succes") {                       
-
+                    
                     // process data
                      var data = [["Topic", "Value"]]
-                     for(var i=0; i<CATEGORIES.length; i++){
-                         data.push([CATEGORIES[i], Math.floor(category[i] * 10000000)]);
+                     for(var i=0; i<CATS.length; i++){
+                         data.push([CATS[i], Math.floor(category[i])]);
                      }
              
                      // Set chart options
@@ -193,6 +337,43 @@
                 });
             }
 
+            function get_random_categories(amount){
+                var rnd = []
+
+                for (var i=0;i<amount;i++){
+                    rnd.push(" " + categories[Math.floor(Math.random() * categories.length)])
+                }
+
+                return rnd;
+            }
+
+            function set_adjusting(){
+                document.getElementById("btn_adjust_reload").disabled = true;
+               // $.getScript(SERVER_DOMAIN + "/js/get_categories", function () {
+                 //   if (cmd == "succes") {  
+                    // Option 1
+                    document.getElementById("lbl_option_1").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
+
+                    // Option 2
+                    document.getElementById("lbl_option_2").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
+
+                    // Option 3
+                    document.getElementById("lbl_option_3").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
+
+                    document.getElementById("btn_adjust_reload").disabled = false;
+       //     }
+     //   });
+    }
+
+            function make_adjusting(index){
+                var cats = document.getElementById("lbl_option_" + index).innerHTML.replace(' ', '').split(", ");
+
+                // Send it --> Response does not matter
+                $.getScript(SERVER_DOMAIN + "/js/adjust?username=" + username + "&cats=" + cats.toString(), function () {});
+
+                // make new ones
+                set_adjusting();
+            }
 
         function OpenInNewTab(url) {
             var win = window.open(url, '_blank');
