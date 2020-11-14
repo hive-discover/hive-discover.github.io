@@ -17,6 +17,7 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/hover-effect.css" rel="stylesheet" />
     <link href="assets/css/loading-animator.css" rel="stylesheet" />
     <link href="assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
 </head>
@@ -69,10 +70,20 @@
                         <h5 class="description">Does it fit? No - Then adjust it <a href="#adjust">here</a>!</h5>
                     </div>
                 </div>
-
-                <br />
-
                 <div id="chart_container" style="display: none;">
+
+                    <div class="progress-container progress-danger" id="progress_bar_container" style="display: none;">
+                        <span class="progress-badge">
+                            Your profile is currently in work
+                        </span>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                aria-valuemax="100" style="width: 50%;" id="progress_bar_width">
+                                <span class="progress-value" id="progress_bar_value">27%</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="chart_div" style="margin: auto;"></div>
             </div>
                 <!-- Loading -->
@@ -85,7 +96,7 @@
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
@@ -96,7 +107,7 @@
         <h2 class="title">Adjust your preferences</h2>
             <h5>Imagine you are reading a post. Which one do you thing is the most interesting? Just select the one, that fits the most to you! Anything you click, will optimize your profile. Be carefull</h5>
         <div class="row" style="margin: auto">
-                <div class="card col-md-3 text-center" style="margin: auto;"  onclick="make_adjusting(1);">
+                <div class="card col-md-3 text-center clickable" style="margin: auto;"  onclick="make_adjusting(1);">
                     <div class="card-body">
                         <h4 class="card-title">
                             <h6>Option 1</h6>
@@ -105,7 +116,7 @@
                         <h5 id="lbl_option_1"></h5>
                     </div>
                 </div>
-                <div class="card col-md-3 text-center" style="margin: auto" onclick="make_adjusting(2);">
+                <div class="card col-md-3 text-center clickable" style="margin: auto" onclick="make_adjusting(2);">
                     <div class="card-body">
                         <h4 class="card-title">
                             <h6>Option 2</h6>
@@ -114,7 +125,7 @@
                         <h5 id="lbl_option_2"></h5>
                     </div>
                 </div>
-                <div class="card col-md-3 text-center" style="margin: auto" onclick="make_adjusting(3);">
+                <div class="card col-md-3 text-center clickable" style="margin: auto" onclick="make_adjusting(3);">
                     <div class="card-body">
                         <h4 class="card-title">
                             <h6>Option 3</h6>
@@ -248,7 +259,7 @@
                 // Update profiler
                 $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
             }
-                
+
             // Chart data loading
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(get_data);
@@ -307,6 +318,19 @@
                 $.getScript(SERVER_DOMAIN + "/js/get_author_category?author=" + username, function () {
                     if (cmd == "succes") {                       
                     
+                        //Progress bar
+                        if(finished == 0){
+                            //Show it
+                            document.getElementById("progress_bar_container").style = "";
+                            document.getElementById("progress_bar_width").style = "width: " + data_length.toString() + "%;";
+                            document.getElementById("progress_bar_value").innerText =data_length.toString() + "%";
+
+                            //Reload later
+                            setTimeout(get_data, 1000);
+                        } else{
+                            document.getElementById("progress_bar_container").style = "display: none";
+                        }
+
                     // process data
                      var data = [["Topic", "Value"]]
                      for(var i=0; i<CATS.length; i++){
