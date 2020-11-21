@@ -167,7 +167,22 @@
             document.getElementById("txt_username").value = username;
 
             // Update profiler
-            $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+            $.ajax({
+                url: SERVER_DOMAIN + "/ping",
+                data: JSON.stringify({"username" : username}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function(response){
+                    if(response["status"] != "succes"){
+                        console.log(response);
+                        alert("Something went wrong!");
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                    alert("Something went wrong!");
+                }
+            });
         }
 
         function OnClick_GetStarted() {
@@ -195,20 +210,24 @@
                         document.getElementById('card_enter_username').style = "";
                         document.getElementById('loading_animation').style = "display: none";
                     } else {
-                        // Succes --> load get_interesting_posts.js to create a profiler
-                        $.getScript(SERVER_DOMAIN + "/js/get_interesting_posts?username=" + username, function () {
-                            if (cmd == "succes") {
-                                setCookie("username", username, 5);
-                                window.location.replace("feed.html");
-                                return
-                            } else {
-                                // Error
-                                alert("Something went wrong at the server side. Please contact the support!");
+                        // Succes --> ajax call to get interesting posts to create a profiler
+                        $.ajax({
+                            url: SERVER_DOMAIN + "/get_interesting_posts",
+                            data: JSON.stringify({"username" : username}),
+                            contentType: 'application/json;charset=UTF-8',
+                            type: 'POST',
+                            success: function(response){
+                                    setCookie("username", username, 5);
+                                    window.location.replace("feed.html");                                
+                            },
+                            error: function(error){
+                                console.log(error);
+                                alert("Something went wrong!");
 
                                 document.getElementById('card_enter_username').style = "";
-                                document.getElementById('loading_animation').style = "display: none";
+                                    document.getElementById('loading_animation').style = "display: none";
                             }
-                        });
+                        });                       
                     }
                 }
             });

@@ -257,7 +257,22 @@
                 username = getCookie("username");
 
                 // Update profiler
-                $.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
+            $.ajax({
+                url: SERVER_DOMAIN + "/ping",
+                data: JSON.stringify({"username" : username}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function(response){
+                    if(response["status"] != "succes"){
+                        console.log(response);
+                        alert("Something went wrong!");
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                    alert("Something went wrong!");
+                }
+            });
             }
 
             // Chart data loading
@@ -266,12 +281,30 @@
 
             // Categorize
             var set_to_zero_selected = "";
-            load_categories();
+            var categories = [];
+            window.addEventListener("load", load_categories);
 
             function OnClick_DeleteProfile(){
-                $.getScript(SERVER_DOMAIN + "/js/delete_user?username=" + username, function () {
+            $.ajax({
+                url: SERVER_DOMAIN + "/delete_user",
+                data: JSON.stringify({"username" : username}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function(response){
+                    if(response["status"] != "succes"){
+                        console.log(response);
+                        alert("Something went wrong!");
+                        return;
+                    }
+
                     window.location.replace("index.html");
-                });   
+
+                },
+                error: function(error){
+                    console.log(error);
+                    alert("Something went wrong!");
+                }
+            }); 
                 deleteAllCookies();          
             }
 
@@ -289,16 +322,46 @@
 
                 document.getElementById("setzero_interact").style = "display: none;";
 
-                $.getScript(SERVER_DOMAIN + "/js/set_to_zero?username="+username+"&cat=" + set_to_zero_selected, function () {
-                    document.getElementById("setzero_interact").style = "";
-                    document.getElementById("setzero_success").style = "color: green;";
-                });               
+                $.ajax({
+                    url: SERVER_DOMAIN + "/set_to_zero",
+                    data: JSON.stringify({"username" : username, "cat" : set_to_zero_selected}),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response){
+                        if(response["status"] != "succes"){
+                            console.log(response);
+                            alert("Something went wrong!");
+                            return;
+                        }
+    
+                        document.getElementById("setzero_interact").style = "";
+                        document.getElementById("setzero_success").style = "color: green;";
+                    },
+                    error: function(error){
+                        console.log(error);
+                        alert("Something went wrong!");
+
+                        document.getElementById("setzero_interact").style = "";
+                        document.getElementById("setzero_success").style = "color: green;";
+                    }
+                });              
             }
 
             function load_categories(){
-        $.getScript(SERVER_DOMAIN + "/js/get_categories", function () {
-            if (cmd == "succes") { 
-                set_adjusting();
+                $.ajax({
+                    url: SERVER_DOMAIN + "/get_categories",
+                    data: JSON.stringify({}),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response){
+                        if(response["status"] != "succes"){
+                            console.log(response);
+                            alert("Something went wrong!");
+                            return;
+                        }
+
+                        categories = response["list"];
+                        set_adjusting();
 
                 //set categories for zero
                 for(var i=0;i<categories.length;i++){
@@ -311,19 +374,32 @@
                 }
 
                 document.getElementById("setzero_interact").style = "";
-            } });
-    }
+                    },
+                    error: function(error){
+                        console.log(error);
+                        alert("Something went wrong!");
+                    }
+                });
+                }
 
             function get_data() {
-                $.getScript(SERVER_DOMAIN + "/js/get_author_category?author=" + username, function () {
-                    if (cmd == "succes") {                       
-                    
-                        //Progress bar
-                        if(finished == 0){
+                $.ajax({
+                    url: SERVER_DOMAIN + "/get_user_profile",
+                    data: JSON.stringify({"username" : username}),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response){
+                        if(response["status"] != "succes"){
+                            console.log(response);
+                            alert("Something went wrong!");
+                            return;
+                        }
+
+                        if(response["finished"] == false){
                             //Show it
                             document.getElementById("progress_bar_container").style = "";
-                            document.getElementById("progress_bar_width").style = "width: " + data_length.toString() + "%;";
-                            document.getElementById("progress_bar_value").innerText =data_length.toString() + "%";
+                            document.getElementById("progress_bar_width").style = "width: " + response["data_length"].toString() + "%;";
+                            document.getElementById("progress_bar_value").innerText = response["data_length"].toString() + "%";
 
                             //Reload later
                             setTimeout(get_data, 1000);
@@ -331,12 +407,13 @@
                             document.getElementById("progress_bar_container").style = "display: none";
                         }
 
-                    // process data
+                        // process data
                      var data = [["Topic", "Value"]]
-                     for(var i=0; i<CATS.length; i++){
-                         data.push([CATS[i], Math.floor(category[i])]);
+                     d = response["top_cats"]
+                     for(var i=0; i<d.length; i++){
+                         data.push([d[i]["label"], Math.floor(d[i]["value"] * 100000)]);
                      }
-             
+
                      // Set chart options
                      var options = {
                             backgroundColor: "transparent",
@@ -351,30 +428,29 @@
                         // Instantiate and draw our chart, passing in some options.
                         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
                         chart.draw(google.visualization.arrayToDataTable(data), options);
-
-                        
-
-                    } else {
-                        // Error
-                        alert("Something went wrong at the server side. Please contact the support!");
+                    },
+                    error: function(error){
+                        console.log(error);
+                        alert("Something went wrong!");
                     }
                 });
-            }
+                
+                 }
 
             function get_random_categories(amount){
                 var rnd = []
 
-                for (var i=0;i<amount;i++){
-                    rnd.push(" " + categories[Math.floor(Math.random() * categories.length)])
+                for (var i = 0;i < amount; i++){
+                    var element = " " + categories[Math.floor(Math.random() * categories.length)];
+                    rnd.push(element);
                 }
 
                 return rnd;
             }
 
             function set_adjusting(){
-                document.getElementById("btn_adjust_reload").disabled = true;
-               // $.getScript(SERVER_DOMAIN + "/js/get_categories", function () {
-                 //   if (cmd == "succes") {  
+                
+                document.getElementById("btn_adjust_reload").disabled = true; 
                     // Option 1
                     document.getElementById("lbl_option_1").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
 
@@ -385,21 +461,34 @@
                     document.getElementById("lbl_option_3").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
 
                     document.getElementById("btn_adjust_reload").disabled = false;
-       //     }
-     //   });
     }
 
             function make_adjusting(index){
                 var cats = document.getElementById("lbl_option_" + index).innerHTML.replace(' ', '').split(", ");
 
                 // Send it --> Response does not matter
-                $.getScript(SERVER_DOMAIN + "/js/adjust?username=" + username + "&cats=" + cats.toString(), function () {});
+                $.ajax({
+                    url: SERVER_DOMAIN + "/adjust",
+                    data: JSON.stringify({"username" : username, "cats" : cats.toString()}),
+                    contentType: 'application/json;charset=UTF-8',
+                    type: 'POST',
+                    success: function(response){
+                        if(response["status"] != "succes"){
+                            console.log(response);
+                            alert("Something went wrong!");
+                        }  
+                    },
+                    error: function(error){
+                        console.log(error);
+                        alert("Something went wrong!");
+                    }
+                }); 
 
                 // make new ones
                 set_adjusting();
             }
 
-        function OpenInNewTab(url) {
+            function OpenInNewTab(url) {
             var win = window.open(url, '_blank');
             win.focus();
         }

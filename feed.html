@@ -232,30 +232,36 @@
             window.location.replace("index.html");
         else{
             username = getCookie("username");
-
-            // Update profiler --> No need because the profiler is started automatically when the posts will be hold
-            //$.getScript(SERVER_DOMAIN + "/js/ping?username=" + username, function () {});
         }       
 
         window.addEventListener("load", get_posts);
         function get_posts() {
-            $.getScript(SERVER_DOMAIN + "/js/get_interesting_posts?username=" + username, function () {
-                if (cmd == "succes") {
-                    if (posts.length == 1 | posts[0] == "") {
-                        // Array be like: [""]
-                        // No posts avaiblabe --> Retry later
+            $.ajax({
+                url: SERVER_DOMAIN + "/get_interesting_posts",
+                data: JSON.stringify({"username" : username}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function(response){
+                    if(response["status"] != "succes"){
+                        console.log(response);
+                        alert("Something went wrong!");
+                        return;
+                    }
+
+                    //Succes, check how many
+                    posts = response["posts"]
+                    if(posts.length == 0){
                         setTimeout(get_posts, 500);
                         return;
                     }
 
+                    //Set them up
                     for (var i = 0; i < posts.length; i++) {
-                        author = posts[i].split('/')[0];
-                        permlink = posts[i].split('/')[1];
-
-                        set_post(author, permlink);
+                        set_post(posts[i]["author"], posts[i]["permlink"]);
                     }
-                } else {
-                    // Error
+                },
+                error: function(error){
+                    console.log(error);
                     alert("Something went wrong at the server side. Please contact the support!");
                 }
             });

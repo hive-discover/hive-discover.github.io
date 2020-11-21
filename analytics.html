@@ -102,17 +102,21 @@
         google.charts.setOnLoadCallback(get_data);
 
         function  get_data(){
-            $.getScript(SERVER_DOMAIN + "/js/get_analytics", function () {
-                if (cmd == "succes") {                       
+            $.ajax({
+                url: SERVER_DOMAIN + "/get_analytics",
+                data: JSON.stringify({}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function(response){
+                    if(response["status"] != "succes"){
+                        console.log(response);
+                        alert("Something went wrong!");
+                        return;
+                    }
+
                     var currentdate = new Date();
                     var timestamp = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-
-
-                    //Tasks running                   
-                    tasks_running_data.push([timestamp,tasks_running]);
-
-                    if(tasks_running_data.length > 30)
-                        tasks_running_data.shift()
+                    tasks_running_data.push([timestamp, response["tasks_running"]]);
 
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Time');
@@ -132,16 +136,12 @@
               
 
                       setTimeout(get_data, 750);
-                } else {
-                    // Error
-                    alert("Something went wrong at the server side. Please contact the support!");
-                    setTimeout(get_data, 5000);
+                },
+                error: function(error){
+                    console.log(error);
+                    alert("Something went wrong!");
                 }
-
-                
             });
-
-            
         }
 
     </script>
