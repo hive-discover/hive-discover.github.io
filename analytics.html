@@ -64,13 +64,21 @@
                 <div class="card-img-top" id="tasks_running_chart"></div>
             </div>
     
-            <div class="card col-md-5" style="margin: auto">
+            <div class="card col-md-3" style="margin: auto">
                 <div class="card-body">
                     <p class="card-text">
-                    <h6 class="text-center">Total tasks currently running</h6>
+                    <h6 class="text-center">Requests</h6>
                     </p>
                 </div>
-                <div class="card-img-top" id="tasks_running_chart"></div>
+                <div class="card-img-top" id="requests_chart"></div>
+            </div>
+            <div class="card col-md-3" style="margin: auto">
+                <div class="card-body">
+                    <p class="card-text">
+                    <h6 class="text-center">Connections</h6>
+                    </p>
+                </div>
+                <div class="card-img-top" id="connections_chart"></div>
             </div>
         </div>
     </body>
@@ -94,7 +102,10 @@
     
     <script type="text/javascript">
     
+        MAX_DATA_LEN = 20;
         tasks_running_data = [];
+        requests_data = [];
+        connections_data = [];
 
 
         google.charts.load('current', {'packages':['corechart', 'line']});
@@ -116,32 +127,65 @@
 
                     var currentdate = new Date();
                     var timestamp = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+                    
                     tasks_running_data.push([timestamp, response["tasks_running"]]);
+                    while(tasks_running_data.length >= MAX_DATA_LEN)
+                        tasks_running_data.shift()
 
-                    var data = new google.visualization.DataTable();
-                    data.addColumn('string', 'Time');
-                    data.addColumn('number', 'Running');
-                    for(var i=0; i < tasks_running_data.length; i++){
-                        data.addRows([tasks_running_data[i]]);
-                    }
+                    requests_data.push([timestamp, response["requests"]]);
+                    while(requests_data.length >= MAX_DATA_LEN)
+                        requests_data.shift()
 
-                    var options = {
-                        title: 'Total tasks running',
-                        curveType: 'function',
-                        legend: { position: 'none' }
-                      };
-              
-                      var chart = new google.charts.Line(document.getElementById('tasks_running_chart'));          
-                      chart.draw(data, options);
-              
+                    connections_data.push([timestamp, response["connections"]]);
+                    while(connections_data.length >= MAX_DATA_LEN)
+                        connections_data.shift()
 
-                      setTimeout(get_data, 750);
+                    setdata();
+                    setTimeout(get_data, 900);
                 },
                 error: function(error){
                     console.log(error);
                     alert("Something went wrong!");
                 }
             });
+        }
+
+        function setdata(){
+            var options = {
+                title: '',
+                curveType: 'function',
+                legend: { position: 'none' }
+              };
+
+            // Tasks running
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Time');
+            data.addColumn('number', 'Running');
+            for (var i = 0; i < tasks_running_data.length; i++) {
+                data.addRows([tasks_running_data[i]]);
+            }
+            var chart = new google.charts.Line(document.getElementById('tasks_running_chart'));
+            chart.draw(data, options); 
+            
+            // Requests
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Time');
+            data.addColumn('number', 'Requests');
+            for (var i = 0; i < requests_data.length; i++) {
+                data.addRows([requests_data[i]]);
+            }
+            var chart = new google.charts.Line(document.getElementById('requests_chart'));
+            chart.draw(data, options); 
+
+            // Connections
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Time');
+            data.addColumn('number', 'Connections');
+            for (var i = 0; i < connections_data.length; i++) {
+                data.addRows([connections_data[i]]);
+            }
+            var chart = new google.charts.Line(document.getElementById('connections_chart'));
+            chart.draw(data, options); 
         }
 
     </script>
