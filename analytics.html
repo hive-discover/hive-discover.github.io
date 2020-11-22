@@ -35,19 +35,19 @@
             <div class="card col-md-2 text-center" style="margin: auto">
                 <div class="card-body">
                     <h4 class="card-title">
-                        <h6>Amount of Accounts</h6>
+                        <h6>Accounts</h6>
                     </h4>
                     <hr />
-                    <h5 id="lbl_amount_Accounts">50</h5>
+                    <h5 id="lbl_amount_accounts">0</h5>
                 </div>
             </div>
             <div class="card col-md-2 text-center" style="margin: auto">
                 <div class="card-body">
                     <h4 class="card-title">
-                        <h6>Amount of Posts</h6>
+                        <h6>Posts</h6>
                     </h4>
                     <hr />
-                    <h5 id="lbl_amount_Posts">500k</h5>
+                    <h5 id="lbl_amount_posts">0</h5>
                 </div>
             </div>
         </div>
@@ -128,6 +128,9 @@
                     var currentdate = new Date();
                     var timestamp = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
                     
+                    document.getElementById('lbl_amount_accounts').innerHTML = response["count_accounts"];
+                    document.getElementById('lbl_amount_posts').innerHTML = response["count_latest_posts"];
+
                     tasks_running_data.push([timestamp, response["tasks_running"]]);
                     while(tasks_running_data.length >= MAX_DATA_LEN)
                         tasks_running_data.shift()
