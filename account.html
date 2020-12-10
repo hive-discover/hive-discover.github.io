@@ -28,7 +28,7 @@
         <div class="container">
             <div class="navbar-translate">
                 <a class="navbar-brand" href="/" rel="tooltip">
-                   Hive Discover
+                    Hive Discover
                 </a>
                 <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navigation" aria-controls="navigation-index" aria-expanded="false"
@@ -43,13 +43,19 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/feed.html">
+                            <i class="fas fa-rss-square"></i>
+                            <p class="d-lg-none d-xl-none">Feed</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/search.html">
                             <i class="fas fa-search"></i>
-                            <p class="d-lg-none d-xl-none">Your Account</p>
+                            <p class="d-lg-none d-xl-none">Search</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" rel="tooltip" title="View on GitHub" data-placement="bottom"
-                        href="https://github.com/Hive-Discover" target="_blank">
+                            href="https://github.com/Hive-Discover" target="_blank">
                             <i class="fab fa-github"></i>
                             <p class="d-lg-none d-xl-none">Github</p>
                         </a>
@@ -77,15 +83,15 @@
                             Your profile is currently in work
                         </span>
                         <div class="progress">
-                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                                aria-valuemax="100" style="width: 50%;" id="progress_bar_width">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60"
+                                aria-valuemin="0" aria-valuemax="100" style="width: 50%;" id="progress_bar_width">
                                 <span class="progress-value" id="progress_bar_value">27%</span>
                             </div>
                         </div>
                     </div>
 
                     <div id="chart_div" style="margin: auto;"></div>
-            </div>
+                </div>
                 <!-- Loading -->
                 <div class="lds-roller" id="loading_animation">
                     <div></div>
@@ -96,7 +102,7 @@
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>                
+                </div>
             </div>
         </div>
     </div>
@@ -104,10 +110,11 @@
 
     <div class="section" id="adjust">
         <div class="container">
-        <h2 class="title">Adjust your preferences</h2>
-            <h5>Imagine you are reading a post. Which one do you thing is the most interesting? Just select the one, that fits the most to you! Anything you click, will optimize your profile. Be carefull</h5>
-        <div class="row" style="margin: auto">
-                <div class="card col-md-3 text-center clickable" style="margin: auto;"  onclick="make_adjusting(1);">
+            <h2 class="title">Adjust your preferences</h2>
+            <h5>Imagine you are reading a post. Which one do you thing is the most interesting? Just select the one,
+                that fits the most to you! Anything you click, will optimize your profile. Be carefull</h5>
+            <div class="row" style="margin: auto">
+                <div class="card col-md-3 text-center clickable" style="margin: auto;" onclick="make_adjusting(1);">
                     <div class="card-body">
                         <h4 class="card-title">
                             <h6>Option 1</h6>
@@ -136,93 +143,103 @@
                 </div>
 
 
-        
-        </div>
-        <hr/>
-        <div class="row" style="margin: auto">
-            <a class="btn btn-danger col-md-3 text-center" id="btn_adjust_reload" style="margin: auto" href="javascript: set_adjusting()">Nothing, next round</a>
-    </div>
-    </div>
 
-    <br /> <br /> <br />
-    <div class="container">
-        <h2 class="title">Set Categories to Zero</h2>
-            <h5>You can select categories and set them to Zero! Then they will be turned off for ever. Please be very carefull and do nothing wrong (Tip: Do only set a few to zero; only your hate categories)</h5>
-        <div class="row" style="margin: auto">
-                <div class="card col-md-5 text-center" style="margin: auto;" >
+            </div>
+            <hr />
+            <div class="row" style="margin: auto">
+                <a class="btn btn-danger col-md-3 text-center" id="btn_adjust_reload" style="margin: auto"
+                    href="javascript: set_adjusting()">Nothing, next round</a>
+            </div>
+        </div>
+
+        <br /> <br /> <br />
+        <div class="container">
+            <h2 class="title">Set Categories to Zero</h2>
+            <h5>You can select categories and set them to Zero! Then they will be turned off for ever. Please be very
+                carefull and do nothing wrong (Tip: Do only set a few to zero; only your hate categories)</h5>
+            <div class="row" style="margin: auto">
+                <div class="card col-md-5 text-center" style="margin: auto;">
                     <div class="card-body">
                         <div id="setzero_interact" style="display: none;">
-                        <h4 class="card-title">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-secondary" id="setzero_drop_category">Category</button>
-                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu" style="overflow: scroll; max-height: 350px;" id="dropdown_list_categories">
-                            <!--      <a class="dropdown-item" href="javascript:setzero_dropdown('action');">Action</a>  -->
+                            <h4 class="card-title">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary"
+                                        id="setzero_drop_category">Category</button>
+                                    <button type="button"
+                                        class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu" style="overflow: scroll; max-height: 350px;"
+                                        id="dropdown_list_categories">
+                                        <!--      <a class="dropdown-item" href="javascript:setzero_dropdown('action');">Action</a>  -->
 
+                                    </div>
                                 </div>
-                              </div>                                
-                        </h4>
-                    <hr/>
-                        <a href="javascript: OnClick_SetZero()" class="btn btn-info col-md-10">Set to Zero</a>
-                    </div>
-                    <h6 id="setzero_success" style="color: green; display: none">Successfully - Reload to see the difference</h6>
-                    </div>
-                </div>     
-        </div>
-        
-    </div>
-
-    <br /> <br /> <br />
-    <div class="container">
-        <h2 class="title">Delete my Profile</h2>
-            <h5>If you want, you can order to delete your profile. You can use it when ever you done a mistake and want to recalculate your profile. Just delete your profile and restart. Also, all Cookies and Preferences will be removed</h5>
-        <div class="row" style="margin: auto">
-                <div class="card col-md-5 text-center" style="margin: auto;" >
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <h6>Are you sure?</h6>                                            
-                        </h4>      
-                        <hr/>             
-                        <a href="javascript: OnClick_DeleteProfile()" class="btn btn-info col-md-10">Yes, delete my profile</a>   
-                    </div>
-                </div>     
-        </div>
-        
-    </div>
-</div>
-    
-            <footer class="footer">
-                <div class=" container ">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="https://hive.blog/@action-chain" target="_blank">
-                                    Action Chain
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/about-us.html">
-                                    About Us
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/de_impressum.html">
-                                    Impressum
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright" id="copyright">
-                        &copy;
-                        <script>
-                            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                        </script>, Coded by
-                        <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
+                            </h4>
+                            <hr />
+                            <a href="javascript: OnClick_SetZero()" class="btn btn-info col-md-10">Set to Zero</a>
+                        </div>
+                        <h6 id="setzero_success" style="color: green; display: none">Successfully - Reload to see the
+                            difference</h6>
                     </div>
                 </div>
-            </footer>
+            </div>
+
+        </div>
+
+        <br /> <br /> <br />
+        <div class="container">
+            <h2 class="title">Delete my Profile</h2>
+            <h5>If you want, you can order to delete your profile. You can use it when ever you done a mistake and want
+                to recalculate your profile. Just delete your profile and restart. Also, all Cookies and Preferences
+                will be removed</h5>
+            <div class="row" style="margin: auto">
+                <div class="card col-md-5 text-center" style="margin: auto;">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <h6>Are you sure?</h6>
+                        </h4>
+                        <hr />
+                        <a href="javascript: OnClick_DeleteProfile()" class="btn btn-info col-md-10">Yes, delete my
+                            profile</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class=" container ">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="https://hive.blog/@action-chain" target="_blank">
+                            Action Chain
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/about-us.html">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/de_impressum.html">
+                            Impressum
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="copyright" id="copyright">
+                &copy;
+                <script>
+                    document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                </script>, Coded by
+                <a href="https://hive.blog/@action-chain" target="_blank">Action-Chain</a>.
+            </div>
+        </div>
+    </footer>
 
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -249,49 +266,49 @@
 
     <script type="text/javascript">
 
-            // Username checking
-            var username;
-            if (checkCookie("username") == false)
-                window.location.replace("index.html");
-            else{
-                username = getCookie("username");
+        // Username checking
+        var username;
+        if (checkCookie("username") == false)
+            window.location.replace("index.html");
+        else {
+            username = getCookie("username");
 
-                // Update profiler
+            // Update profiler
             $.ajax({
                 url: SERVER_DOMAIN + "/ping",
-                data: JSON.stringify({"username" : username}),
+                data: JSON.stringify({ "username": username }),
                 contentType: 'application/json;charset=UTF-8',
                 type: 'POST',
-                success: function(response){
-                    if(response["status"] != "succes"){
+                success: function (response) {
+                    if (response["status"] != "succes") {
                         console.log(response);
                         alert("Something went wrong!");
                     }
                 },
-                error: function(error){
+                error: function (error) {
                     console.log(error);
                     alert("Something went wrong!");
                 }
             });
-            }
+        }
 
-            // Chart data loading
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(get_data);
+        // Chart data loading
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(get_data);
 
-            // Categorize
-            var set_to_zero_selected = "";
-            var categories = [];
-            window.addEventListener("load", load_categories);
+        // Categorize
+        var set_to_zero_selected = "";
+        var categories = [];
+        window.addEventListener("load", load_categories);
 
-            function OnClick_DeleteProfile(){
+        function OnClick_DeleteProfile() {
             $.ajax({
                 url: SERVER_DOMAIN + "/delete_user",
-                data: JSON.stringify({"username" : username}),
+                data: JSON.stringify({ "username": username }),
                 contentType: 'application/json;charset=UTF-8',
                 type: 'POST',
-                success: function(response){
-                    if(response["status"] != "succes"){
+                success: function (response) {
+                    if (response["status"] != "succes") {
                         console.log(response);
                         alert("Something went wrong!");
                         return;
@@ -300,195 +317,194 @@
                     window.location.replace("index.html");
 
                 },
-                error: function(error){
+                error: function (error) {
                     console.log(error);
                     alert("Something went wrong!");
                 }
-            }); 
-                deleteAllCookies();          
+            });
+            deleteAllCookies();
+        }
+
+        function setzero_dropdown(value) {
+            document.getElementById('setzero_drop_category').innerHTML = value;
+            set_to_zero_selected = value;
+        }
+
+        function OnClick_SetZero() {
+            if (set_to_zero_selected == "") {
+                alert("Please select a category.");
+                return;
             }
 
-            function setzero_dropdown(value){
-        document.getElementById('setzero_drop_category').innerHTML = value;
-        set_to_zero_selected = value;
-    }
+            document.getElementById("setzero_interact").style = "display: none;";
 
-            function OnClick_SetZero(){
-                if(set_to_zero_selected == "")
-                {
-                    alert("Please select a category.");
-                    return;
-                }
-
-                document.getElementById("setzero_interact").style = "display: none;";
-
-                $.ajax({
-                    url: SERVER_DOMAIN + "/set_to_zero",
-                    data: JSON.stringify({"username" : username, "cat" : set_to_zero_selected}),
-                    contentType: 'application/json;charset=UTF-8',
-                    type: 'POST',
-                    success: function(response){
-                        if(response["status"] != "succes"){
-                            console.log(response);
-                            alert("Something went wrong!");
-                            return;
-                        }
-    
-                        document.getElementById("setzero_interact").style = "";
-                        document.getElementById("setzero_success").style = "color: green;";
-                    },
-                    error: function(error){
-                        console.log(error);
+            $.ajax({
+                url: SERVER_DOMAIN + "/set_to_zero",
+                data: JSON.stringify({ "username": username, "cat": set_to_zero_selected }),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function (response) {
+                    if (response["status"] != "succes") {
+                        console.log(response);
                         alert("Something went wrong!");
-
-                        document.getElementById("setzero_interact").style = "";
-                        document.getElementById("setzero_success").style = "color: green;";
+                        return;
                     }
-                });              
+
+                    document.getElementById("setzero_interact").style = "";
+                    document.getElementById("setzero_success").style = "color: green;";
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert("Something went wrong!");
+
+                    document.getElementById("setzero_interact").style = "";
+                    document.getElementById("setzero_success").style = "color: green;";
+                }
+            });
+        }
+
+        function load_categories() {
+            $.ajax({
+                url: SERVER_DOMAIN + "/get_categories",
+                data: JSON.stringify({}),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function (response) {
+                    if (response["status"] != "succes") {
+                        console.log(response);
+                        alert("Something went wrong!");
+                        return;
+                    }
+
+                    categories = response["list"];
+                    set_adjusting();
+
+                    //set categories for zero
+                    for (var i = 0; i < categories.length; i++) {
+                        var item = document.createElement('a');
+                        item.className = "dropdown-item";
+                        item.href = "javascript:setzero_dropdown('" + categories[i] + "');";
+                        item.innerHTML = categories[i];
+
+                        document.getElementById("dropdown_list_categories").appendChild(item);
+                    }
+
+                    document.getElementById("setzero_interact").style = "";
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert("Something went wrong!");
+                }
+            });
+        }
+
+        function get_data() {
+            $.ajax({
+                url: SERVER_DOMAIN + "/get_user_profile",
+                data: JSON.stringify({ "username": username }),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function (response) {
+                    if (response["status"] != "succes") {
+                        console.log(response);
+                        alert("Something went wrong!");
+                        return;
+                    }
+
+                    if (response["finished"] == false) {
+                        //Show it
+                        document.getElementById("progress_bar_container").style = "";
+                        document.getElementById("progress_bar_width").style = "width: " + response["data_length"].toString() + "%;";
+                        document.getElementById("progress_bar_value").innerText = response["data_length"].toString() + "%";
+
+                        //Reload later
+                        setTimeout(get_data, 1000);
+                    } else {
+                        document.getElementById("progress_bar_container").style = "display: none";
+                    }
+
+                    // process data
+                    var data = [["Topic", "Value"]]
+                    d = response["top_cats"]
+                    for (var i = 0; i < d.length; i++) {
+                        data.push([d[i]["label"], Math.floor(d[i]["value"] * 100000)]);
+                    }
+
+                    // Set chart options
+                    var options = {
+                        backgroundColor: "transparent",
+                        enableInteractivity: false,
+                        height: 600,
+                        pieHole: 0.1
+                    };
+
+                    document.getElementById("loading_animation").style = "display: none";
+                    document.getElementById("chart_container").style = "";
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                    chart.draw(google.visualization.arrayToDataTable(data), options);
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert("Something went wrong!");
+                }
+            });
+
+        }
+
+        function get_random_categories(amount) {
+            var rnd = []
+
+            for (var i = 0; i < amount; i++) {
+                var element = " " + categories[Math.floor(Math.random() * categories.length)];
+                rnd.push(element);
             }
 
-            function load_categories(){
-                $.ajax({
-                    url: SERVER_DOMAIN + "/get_categories",
-                    data: JSON.stringify({}),
-                    contentType: 'application/json;charset=UTF-8',
-                    type: 'POST',
-                    success: function(response){
-                        if(response["status"] != "succes"){
-                            console.log(response);
-                            alert("Something went wrong!");
-                            return;
-                        }
+            return rnd;
+        }
 
-                        categories = response["list"];
-                        set_adjusting();
+        function set_adjusting() {
 
-                //set categories for zero
-                for(var i=0;i<categories.length;i++){
-                    var item = document.createElement('a');
-                    item.className = "dropdown-item";
-                    item.href = "javascript:setzero_dropdown('" + categories[i] + "');";
-                    item.innerHTML = categories[i];
+            document.getElementById("btn_adjust_reload").disabled = true;
+            // Option 1
+            document.getElementById("lbl_option_1").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
 
-                    document.getElementById("dropdown_list_categories").appendChild(item);
-                }
+            // Option 2
+            document.getElementById("lbl_option_2").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
 
-                document.getElementById("setzero_interact").style = "";
-                    },
-                    error: function(error){
-                        console.log(error);
+            // Option 3
+            document.getElementById("lbl_option_3").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
+
+            document.getElementById("btn_adjust_reload").disabled = false;
+        }
+
+        function make_adjusting(index) {
+            var cats = document.getElementById("lbl_option_" + index).innerHTML.replace(' ', '').split(", ");
+
+            // Send it --> Response does not matter
+            $.ajax({
+                url: SERVER_DOMAIN + "/adjust",
+                data: JSON.stringify({ "username": username, "cats": cats.toString() }),
+                contentType: 'application/json;charset=UTF-8',
+                type: 'POST',
+                success: function (response) {
+                    if (response["status"] != "succes") {
+                        console.log(response);
                         alert("Something went wrong!");
                     }
-                });
+                },
+                error: function (error) {
+                    console.log(error);
+                    alert("Something went wrong!");
                 }
+            });
 
-            function get_data() {
-                $.ajax({
-                    url: SERVER_DOMAIN + "/get_user_profile",
-                    data: JSON.stringify({"username" : username}),
-                    contentType: 'application/json;charset=UTF-8',
-                    type: 'POST',
-                    success: function(response){
-                        if(response["status"] != "succes"){
-                            console.log(response);
-                            alert("Something went wrong!");
-                            return;
-                        }
+            // make new ones
+            set_adjusting();
+        }
 
-                        if(response["finished"] == false){
-                            //Show it
-                            document.getElementById("progress_bar_container").style = "";
-                            document.getElementById("progress_bar_width").style = "width: " + response["data_length"].toString() + "%;";
-                            document.getElementById("progress_bar_value").innerText = response["data_length"].toString() + "%";
-
-                            //Reload later
-                            setTimeout(get_data, 1000);
-                        } else{
-                            document.getElementById("progress_bar_container").style = "display: none";
-                        }
-
-                        // process data
-                     var data = [["Topic", "Value"]]
-                     d = response["top_cats"]
-                     for(var i=0; i<d.length; i++){
-                         data.push([d[i]["label"], Math.floor(d[i]["value"] * 100000)]);
-                     }
-
-                     // Set chart options
-                     var options = {
-                            backgroundColor: "transparent",
-                            enableInteractivity: false,
-                            height: 600,
-                            pieHole: 0.1
-                        };
-
-                        document.getElementById("loading_animation").style = "display: none";
-                        document.getElementById("chart_container").style = "";
-
-                        // Instantiate and draw our chart, passing in some options.
-                        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-                        chart.draw(google.visualization.arrayToDataTable(data), options);
-                    },
-                    error: function(error){
-                        console.log(error);
-                        alert("Something went wrong!");
-                    }
-                });
-                
-                 }
-
-            function get_random_categories(amount){
-                var rnd = []
-
-                for (var i = 0;i < amount; i++){
-                    var element = " " + categories[Math.floor(Math.random() * categories.length)];
-                    rnd.push(element);
-                }
-
-                return rnd;
-            }
-
-            function set_adjusting(){
-                
-                document.getElementById("btn_adjust_reload").disabled = true; 
-                    // Option 1
-                    document.getElementById("lbl_option_1").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
-
-                    // Option 2
-                    document.getElementById("lbl_option_2").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
-
-                    // Option 3
-                    document.getElementById("lbl_option_3").innerHTML = get_random_categories(Math.floor(Math.random() * 5) + 2).toString();
-
-                    document.getElementById("btn_adjust_reload").disabled = false;
-    }
-
-            function make_adjusting(index){
-                var cats = document.getElementById("lbl_option_" + index).innerHTML.replace(' ', '').split(", ");
-
-                // Send it --> Response does not matter
-                $.ajax({
-                    url: SERVER_DOMAIN + "/adjust",
-                    data: JSON.stringify({"username" : username, "cats" : cats.toString()}),
-                    contentType: 'application/json;charset=UTF-8',
-                    type: 'POST',
-                    success: function(response){
-                        if(response["status"] != "succes"){
-                            console.log(response);
-                            alert("Something went wrong!");
-                        }  
-                    },
-                    error: function(error){
-                        console.log(error);
-                        alert("Something went wrong!");
-                    }
-                }); 
-
-                // make new ones
-                set_adjusting();
-            }
-
-            function OpenInNewTab(url) {
+        function OpenInNewTab(url) {
             var win = window.open(url, '_blank');
             win.focus();
         }
