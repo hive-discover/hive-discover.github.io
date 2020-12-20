@@ -160,7 +160,7 @@
                         <th>
                             <span style="display: inline-block; height: 77px; width: 130px">
                                 <picture style="width: 100%">
-                                    <img src="{{ImageSource}}" onclick="OpenInNewTab('{{HiveURL}}');"
+                                    <img src="{{ImageSource}}" id="{{Image_ID}}" onclick="OpenInNewTab('{{HiveURL}}');"
                                         style="display: inline-block; max-height: 100%; max-width: 100%" />
                                 </picture>
                                 <br />
@@ -541,6 +541,7 @@
 
                     //image
                     var ImageSource = "";
+                    var Image_ID = "img_" + permlink.toString();
                     try {
                         var images = metadata["image"];
                         if (images.length > 0)
@@ -563,11 +564,17 @@
                         Body: body,
                         ImageSource: ImageSource,
                         Author: result['author'],
-                        HiveURL: hivURL
+                        HiveURL: hivURL,
+                        Image_ID: Image_ID
                     }
 
                     document.getElementById("list").innerHTML += template(json);
                     document.getElementById("loading_animation").style = "display: none";
+
+                    $('#' + Image_ID).bind('error', function(e){ 
+                        $('#' + Image_ID).attr('src','./assets/img/blurred-image-1.jpg')
+                        $('#' + Image_ID).attr('style','opacity: 0.1')
+                     });
                 }
             });
         }

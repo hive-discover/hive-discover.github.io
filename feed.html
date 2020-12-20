@@ -114,7 +114,7 @@
                                     <th>
                                         <span style="display: inline-block; height: 77px; width: 130px">
                                             <picture style="width: 100%">
-                                                <img src="{{ImageSource}}" onclick="OpenInNewTab('{{HiveURL}}');"
+                                                <img src="{{ImageSource}}" id="{{Image_ID}}" onclick="OpenInNewTab('{{HiveURL}}');"
                                                     style="display: inline-block; max-height: 100%; max-width: 100%" />
                                             </picture>
                                             <br />
@@ -210,8 +210,7 @@
     </div>
   </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
@@ -273,6 +272,10 @@
             });
         }
 
+        function image_loaded(img_id){
+
+        }
+
         function set_post(author, permlink) {
             hivejs.api.getContent(author, permlink, function (err, result) {
                 if (result) {
@@ -286,6 +289,7 @@
 
                     //image
                     var ImageSource = "";
+                    var Image_ID = "img_" + permlink.toString();
                     try {
                         var images = metadata["image"];
                         if (images.length > 0)
@@ -309,13 +313,20 @@
                         Body: body,
                         ImageSource: ImageSource,
                         Author: result['author'],
-                        HiveURL: hivURL
+                        HiveURL: hivURL,
+                        Image_ID : Image_ID
                     }
 
                     document.getElementById("post_list").innerHTML += template(json);
 
                     document.getElementById("loading_animation").style = "display: none";
                     document.getElementById("posts").style = "";
+
+                    
+                    $('#' + Image_ID).bind('error', function(e){ 
+                        $('#' + Image_ID).attr('src','./assets/img/blurred-image-1.jpg')
+                        $('#' + Image_ID).attr('style','opacity: 0.1')
+                     });
                 } else {
                     // Get
                     console.log("Reget");
