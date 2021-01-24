@@ -30,8 +30,8 @@
     <link href="discover/assets/css/hipster_cards.css" rel="stylesheet" />
     <link href="discover/assets/css/demo.css" rel="stylesheet" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="../assets/demo/demo.css" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project 
+    <link href="../assets/demo/demo.css" rel="stylesheet" />-->
 </head>
 
 <body class="landing-page sidebar-collapse">
@@ -39,7 +39,7 @@
     <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
         <div class="container">
             <div class="dropdown button-dropdown">
-                <a href="#pablo" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown">
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
                     <span class="button-bar"></span>
@@ -65,8 +65,13 @@
                         <a class="nav-link" href="javascript: openHiveSite('/@action-chain')">Learn more</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" rel="tooltip" title="Adjust your Settings" data-placement="bottom"
-                            href="javascript: openSettings()">
+                        <a class="nav-link" href="https://github.com/hive-discover" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <p class="d-lg-none d-xl-none">GitHub</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript: openSettings()">
                             <i class="fas fa-cogs"></i>
                             <p class="d-lg-none d-xl-none">Settings</p>
                         </a>
@@ -128,6 +133,9 @@
                             </div>
                         </div>
                         <br />
+                        <a class="btn btn-fill btn-primary btn-modern" id="link-profile-overview" style="display: none">
+                            <i class="fa fa-chart-pie"></i>
+                            Check out your Profile Overview </a>
                     </div>
                 </div>
             </div>
@@ -136,23 +144,20 @@
         <div class="container" id="results-container" style="display: none">
             <br />
             <div id="profiler-info">
-
                 <div class="progress-container progress-danger" id="progress-bar-container">
                     <span class="progress-badge">
                         Your profile is currently in work
                     </span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60"
-                            aria-valuemin="0" aria-valuemax="100" style="width: 50%;" id="progress-bar-width">
-                            <span class="progress-value" id="progress-bar-value">27%</span>
+                            aria-valuemin="0" aria-valuemax="100" style="width: 0%;" id="progress-bar-width">
+                            <span class="progress-value" id="progress-bar-value">0%</span>
                         </div>
                     </div>
                 </div>
-                <h4 class="categoriy text-center">Profile Overview</h4>
-                <div id="chart_div" style="margin: auto;"></div>
-
+                <hr />
             </div>
-            <hr />
+
 
             <div class="row">
                 <div id="content-container-1" class="col-md-4">
@@ -184,18 +189,23 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="https://www.creative-tim.com">
-                                Creative Tim
+                            <a href="javascript: openHiveSite('/@action-chain');">
+                                Action-Chain
                             </a>
                         </li>
                         <li>
-                            <a href="http://presentation.creative-tim.com">
-                                About Us
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://blog.creative-tim.com">
+                            <a href="javascript: openHiveSite('/@action-chain');">
                                 Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: openHiveSite('/@action-chain');">
+                                Impressum
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: openHiveSite('/@action-chain');">
+                                Data Protection
                             </a>
                         </li>
                     </ul>
@@ -204,9 +214,7 @@
                     &copy;
                     <script>
                         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                    </script>, Designed by
-                    <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-                    <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+                    </script>, Developed by <a href="javascript: openHiveSite('/@action-chain');">Action-Chain</a>.
                 </div>
             </div>
         </footer>
@@ -350,6 +358,48 @@
                 </div> <!-- end card -->
             </div>
         </div>
+
+        <div id="card-holder-5">
+            <div class="card col-md-12">
+                <div class="card-header" style="cursor: pointer; height: 250px; width: 100%; margin: auto"
+                    data-background="image" onclick="openHiveSite({{ACCOUNT_LINK}})" data-src="{{COVER_IMAGE}}">
+
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <img class="col-md-6" style="width: 100%; border-radius: 50%; margin-top: 150px;"
+                            src="{{PROFILE_IMAGE}}" />
+                        <div class="col-md-3"></div>
+                    </div>
+                </div>
+                <br /> <br />
+                <div class="card-content text-center">
+                    <h6 class="category" style="color: black"><strong>{{ACCOUNT_NAME}}</strong></h6>
+                    <h6 class="category" onclick="openHiveSite({{ACCOUNT_LINK}})"
+                        style="cursor: pointer; padding-top: 5px;">
+                        <strong>@{{ACCOUNT_USER_NAME}}</strong>
+                    </h6>
+                    <h4 class="category" style="overflow: hidden; display: -webkit-box; text-overflow: ellipsis; -webkit-line-clamp: 7; -webkit-box-orient: vertical; 
+                color: rgba(0, 0, 0, 0.692)">
+                        {{DESCRIPTION}}
+                    </h4>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 class="category"><strong>Follower</strong></h5>
+                            <h5 style="color: black" id="{{FOLLOWER_COUNT_ID}}"></h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="category"><strong>Posts</strong></h5>
+                            <h5 style="color: black">{{POST_COUNT}}</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="category"><strong>Following</strong></h5>
+                            <h5 style="color: black" id="{{FOLLOWING_COUNT_ID}}"></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -398,7 +448,11 @@
                 item = open_data[0]
                 open_data.shift();
 
-                get_post(item["a"], item["p"]);
+                var mode = $("#search-mode-selected").text();
+                if (mode == "Accounts")
+                    get_account(item);
+                else
+                    get_post(item["a"], item["p"]);
                 SetOpenData(amount - 1);
             }
 
@@ -416,9 +470,23 @@
                 type: 'GET',
                 success: function (response) {
                     if (response.status == "ok") {
-                        for (var i = 0; i < response.posts.length; i++) {
-                            // Push all
-                            open_data.push(response.posts[i]);
+
+                        if ("posts" in response) {
+                            if (response.posts.length > 0) {
+                                for (var i = 0; i < response.posts.length; i++) {
+                                    // Push all
+                                    open_data.push(response.posts[i]);
+                                }
+                            } else {
+                                // Rerun in some seconds
+                                setTimeout(function () { GetAPIData(start_setting_data = start_setting_data) }, 200);
+                            }
+                        }
+                        if ("accounts" in response) {
+                            for (var i = 0; i < response.accounts.length; i++) {
+                                // Push all
+                                open_data.push(response.accounts[i]);
+                            }
                         }
                     }
 
@@ -442,6 +510,7 @@
                 $("#results-container").attr("style", "");
                 $("#page-header").attr("class", "page-header page-header-small");
                 $("#profiler-info").attr("style", "display: none;");
+                document.getElementById("link-profile-overview").style = "display: none";
                 document.getElementById("content-container-1").innerHTML = "";
                 document.getElementById("content-container-2").innerHTML = "";
                 document.getElementById("content-container-3").innerHTML = "";
@@ -472,7 +541,11 @@
                     }
                     username = query;
                     url = API_ADDRESS + "/get-feed?username=" + query + "&data=true";
-                    setTimeout(getProfilerInfo, 200);
+
+
+                    document.getElementById("link-profile-overview").style = "";
+                    document.getElementById("link-profile-overview").href = "./data.html?u=" + username;
+                    setTimeout(getProfilerInfo, 50);
                     break;
                 case "Accounts":
                     // Search for an Account
@@ -487,6 +560,65 @@
             GetAPIData(start_setting_data = true);
         }
 
+        function get_account(name) {
+            hivejs.api.getAccounts([name], function (err, result) {
+                if (result) {
+                    if (result.length > 0) {
+                        var acc = result[0];
+                        if ("json_metadata" in acc) {
+                            var metadata = JSON.parse(acc.json_metadata);
+                            var context = {
+                                FOLLOWER_COUNT_ID: "text-follower-count-" + makeid(7),
+                                FOLLOWING_COUNT_ID: "text-following-count-" + makeid(7),
+                                POST_COUNT: acc["post_count"],
+                                PROFILE_IMAGE: metadata["profile"]["profile_image"],
+                                ACCOUNT_NAME: metadata["profile"]["name"],
+                                ACCOUNT_USER_NAME: acc["name"],
+                                ACCOUNT_LINK: "/@" + acc["name"],
+                                DESCRIPTION: metadata["profile"]["about"],
+                                COVER_IMAGE: metadata["profile"]["cover_image"],
+                            };
+
+                            var template = Handlebars.compile(document.getElementById("card-holder-5").innerHTML);
+                            var card_obj = template(context);
+                            item_index += 1;
+
+                            // Set in right column   
+                            if ($("#content-container-1").height() < $("#content-container-2").height() && $("#content-container-1").height() < $("#content-container-3").height())
+                                document.getElementById("content-container-1").innerHTML += card_obj;
+                            else if ($("#content-container-2").height() < $("#content-container-1").height() && $("#content-container-2").height() < $("#content-container-3").height())
+                                document.getElementById("content-container-2").innerHTML += card_obj;
+                            else if ($("#content-container-3").height() < $("#content-container-1").height() && $("#content-container-3").height() < $("#content-container-2").height())
+                                document.getElementById("content-container-3").innerHTML += card_obj;
+                            else {
+                                // Fill based on item_index
+                                switch ((item_index - 1) % 3) {
+                                    case 0:
+                                        document.getElementById("content-container-1").innerHTML += card_obj;
+                                        break;
+                                    case 1:
+                                        document.getElementById("content-container-2").innerHTML += card_obj;
+                                        break;
+                                    case 2:
+                                        document.getElementById("content-container-3").innerHTML += card_obj;
+                                        break;
+                                }
+                            }
+
+                            function setFollowAPI(context) {
+                                hivejs.api.getFollowCount(acc["name"], function (err, result) {
+                                    if (result) {
+                                        document.getElementById(context.FOLLOWER_COUNT_ID).innerText = result.follower_count;
+                                        document.getElementById(context.FOLLOWING_COUNT_ID).innerText = result.following_count;
+                                    }
+                                });
+                            }
+                            setFollowAPI(context);
+                        }
+                    }
+                }
+            });
+        }
 
         function setFrontEnd(selected) {
             setCookie("front-end", selected, 20);
@@ -606,10 +738,10 @@
                         else
                             template = Handlebars.compile(document.getElementById('card-holder-3').innerHTML);
                     }
-                  
+
                     var card_obj = template(json);
                     item_index += 1;
-                    
+
                     // Set in right column   
                     if ($("#content-container-1").height() < $("#content-container-2").height() && $("#content-container-1").height() < $("#content-container-3").height())
                         document.getElementById("content-container-1").innerHTML += card_obj;
@@ -652,59 +784,36 @@
                     if (response.status == "ok") {
                         $("#profiler-info").attr("style", "");
 
-                        if (response.loading == false) {
-                            $("#progress-bar-container").attr("style", "display: none");
-                        } else {
-                            // Set progress bar
-                            $("#progress-bar-container").attr("style", "");
+                        if ("loading" in response) {
+                            if (response.loading == false) {
+                                $("#progress-bar-container").attr("style", "display: none");
+                                // No reload because all data is there
+                                return;
+                            } else {
+                                // Set progress bar
+                                $("#progress-bar-container").attr("style", "");
 
-                            progress = 0;
+                                progress = 0;
 
-                            if (response.loading != true) {
-                                // is object --> can calc progress
-                                max = response.loading.max;
-                                current = response.loading.current;
-                                progress = parseInt((current / max) * 100);
+                                if (response.loading != true) {
+                                    // is object --> can calc progress
+                                    max = response.loading.max;
+                                    current = response.loading.current;
+                                    progress = parseInt((current / max) * 100);
+                                }
+
+                                $("#progress-bar-width").attr("style", "width: " + progress.toString() + ";");
+                                $("#progress-bar-value").text(progress.toString() + "%");
+
                             }
-
-                            document.getElementById("progress-bar-width").style = "width: " + progress.toString();
-                            $("#progress-bar-value").text(progress.toString() + "%");
-
-                            // Only get data again, when it is in loading mode
-                            setTimeout(getProfilerInfo, 5000);
                         }
-
-
-                        d = response["categories"];
-
-                        if (d) {
-                            var data = [["Topic", "Value"]]
-                            for (var i = 0; i < d.length; i++) {
-                                // Push, when the label got more than 8%
-                                if (d[i]["value"] > 0.05)
-                                    data.push([d[i]["label"], d[i]["value"]]);
-                            }
-
-                            // Set chart options
-                            var options = {
-                                backgroundColor: "transparent",
-                                enableInteractivity: false,
-                                height: 600,
-                                pieHole: 0.1
-                            };
-
-                            // Instantiate and draw our chart, passing in some options.
-                            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-                            chart.draw(google.visualization.arrayToDataTable(data), options);
-                        }
+                        setTimeout(getProfilerInfo, 500);
                     }
                 },
                 error: function (error) {
                     console.log(error);
                 }
             });
-
-
         }
 
         function openHiveSite(link) {
