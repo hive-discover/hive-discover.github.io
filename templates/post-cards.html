@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hive Discover</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div id="card-holders" style="display: none;">
+        <div class="container" style="padding-top: 31px;">
+            <div class="row">
+                <div class="col" id="card-holder-1">
+                    <div class="card clickable" style="padding: 0px;width: 100%;margin: 10px;background: rgb(149,149,149);max-width: 100%;border-radius: 5px;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)">
+                        <div class="text-center" style="min-height: 210px;max-width: 100%;background: url(&quot;{{BACKGROUND_IMG}}&quot;) center / cover no-repeat;">
+                            <h4 style="color: var(--white);text-align: center;font-size: 30px;max-height: 5.9em;text-overflow: ellipsis;overflow: hidden;line-height: 1em;display: block;">{{TITLE}}&nbsp;</h4>
+                            <p style="color: var(--white);">@{{AUTHOR}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" id="card-holder-2">
+                    <div class="card clickable" style="width: 100%;min-height: 400px;max-height: 550px;min-width: 350px;margin: 10px;max-width: 100%;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)">
+                        <div class="card-body" style="width: 100%;padding: 10px;background: url(&quot;{{BACKGROUND_IMG}}&quot;) center / cover no-repeat;">
+                            <h2 class="card-title" style="line-height: 1.5em;max-height: 7.2em;text-overflow: ellipsis;overflow: hidden;color: rgb(255,255,255);font-size: 35px;filter: contrast(200%);">{{TITLE}}</h2>
+                            <h2 class="card-title" style="line-height: 1em;max-height: 1.5em;text-overflow: ellipsis;overflow: hidden;color: rgb(176,176,176);font-size: 20px;filter: contrast(200%);">@{{AUTHOR}}</h2>
+                            <p class="card-title" style="line-height: 1.2em;max-height: 2.6em;text-overflow: ellipsis;overflow: hidden;color: rgb(255,255,255);font-size: 23px;filter: contrast(200%);">
+
+                                {{BODY}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" id="card-holder-3">
+                    <div class="card clickable col-md-12" style="padding: 0px;margin: 10px;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)"><img class="img-fluid card-img-top w-100 d-block" src="{{BACKGROUND_IMG}}">
+                        <div class="card-body">
+                            <h4 class="card-title" style="line-height: 1.5em;max-height: 3.2em;text-overflow: ellipsis;overflow: hidden;">{{TITLE}}</h4>
+                            <h6 class="text-muted card-subtitle mb-2 author-text" style="line-height: 1em;max-height: 1.1em;text-overflow: ellipsis;overflow: hidden;">@{{AUTHOR}}</h6>
+                            <p class="card-text" style="line-height: 1.5em;max-height: 13.6em;text-overflow: ellipsis;overflow: hidden;">
+
+                                {{BODY}}<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cards-exists"></div>
+    </div>
+    <div style="min-height: 100%;">
+        <div class="container" style="padding-top: 31px;min-height: 100%;"></div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
+    <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hivesigner"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>

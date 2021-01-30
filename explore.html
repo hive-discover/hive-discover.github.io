@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hive Discover</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <div>
+        <div class="header-blue" style="padding-left: -;">
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
+                            <li class="nav-item" id="navbar-login"><a class="nav-link" href="javascript: LoginViaHiveSigner();">Login</a></li>
+                            <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;">Account</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                    <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline float-right" action="/search-posts.html">
+                            <div class="form-group" style="padding-left: 22px;"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="q" style="text-align: left;opacity: 1;border-style: none;border-color: var(--gray);border-right: 1px none var(--dark);border-bottom-style: solid;border-bottom-color: var(--dark);color: rgb(255,255,255);" autofocus="" autocomplete="on" required="" minlength="1" placeholder="Search..."></div><a class="btn btn-light action-button" role="button" href="javascript: OnSearchBarGo();" style="padding-right: 19px;">GO</a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <h1 class="text-center">Login via HiveSigner</h1>
+                <p class="text-center">You need to be signed in to get a feed based on your activities. Else, anyone could use your username and can look at your interests. So, to achieve that your personal data is safe, you have to grant us an acces token with HiveSigner (ONLY reading permission)</p>
+                <hr>
+                <p class="text-center"><button class="btn btn-primary btn-lg text-left action-button" type="button" style="margin-right: 10px;margin-left: 10px;" onclick="LoginViaHiveSigner()">Go to HiveSigner&nbsp; &nbsp;&nbsp;<img src="https://hivesigner.com/logo.svg" loading="lazy" style="max-height: 50px;"></button></p>
+            </div>
+        </div>
+    </div>
+    <div class="features-clean" style="display: none;">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Features</h2>
+                <p class="text-center"></p>
+            </div>
+            <div class="row features">
+                <div class="col-sm-6 col-lg-4 item"><i class="material-icons icon">https</i>
+                    <h3 class="name">Privacy</h3>
+                    <p class="description">We value your privacy. That is why we use HTTPS Connections and modern encryption techniques to be a Vault for your data.</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-github icon"></i>
+                    <h3 class="name">Open Source</h3>
+                    <p class="description">Every codefile is published on GitHub. Look at them <a href="https://github.com/Hive-Discover">here</a>...</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="icon">
+                        <path d="M12 19C10.067 19 8.31704 18.2165 7.05029 16.9498L12 12L12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19Z" fill="currentColor"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="currentColor"></path>
+                    </svg>
+                    <h3 class="name">Future</h3>
+                    <p class="description">In the next time, we will launch our custom API. Then, popular Front-Ends like Peakd or Hive.blog could integrate our service.</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-leaf icon"></i>
+                    <h3 class="name">Organic</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-plane icon"></i>
+                    <h3 class="name">Fast</h3>
+                    <p class="description">We try to achieve the best performance. That is why we nearly got a copy of the blockchain locally saved in a database.&nbsp;</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fas fa-coins icon"></i>
+                    <h3 class="name">Free to use</h3>
+                    <p class="description">Our service is 100% free for everyone!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic" style="bottom: 0;width: 100%;padding-bottom: 0px;">
+        <footer style="bottom: 0;">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Non-Profit</p>
+            <p class="copyright">Hive Discover - © 2021&nbsp;</p>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
+    <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hivesigner"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>

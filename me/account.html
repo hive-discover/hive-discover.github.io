@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hive Discover</title>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.min.css">
+</head>
+
+<body>
+    <div id="need-login"></div>
+    <div>
+        <div class="header-blue" style="padding-left: -;">
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
+                            <li class="nav-item" id="navbar-login"><a class="nav-link" href="javascript: LoginViaHiveSigner();">Login</a></li>
+                            <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;">Account</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                    <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline float-right" action="/search-posts.html">
+                            <div class="form-group" style="padding-left: 22px;"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="q" style="text-align: left;opacity: 1;border-style: none;border-color: var(--gray);border-right: 1px none var(--dark);border-bottom-style: solid;border-bottom-color: var(--dark);color: rgb(255,255,255);" autofocus="" autocomplete="on" required="" minlength="1" placeholder="Search..."></div><a class="btn btn-light action-button" role="button" href="javascript: OnSearchBarGo();" style="padding-right: 19px;">GO</a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <h1 class="text-center" id="label-welcome-username">Welcome,&nbsp;</h1>
+                <div id="loading-animator" class="text-center" style="margin: auto;">
+                    <div class="lds-roller">
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                    </div>
+                    <p style="color: rgb(174,174,174);">Loading</p>
+                </div>
+                <div id="chart-account-categories"></div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic" style="bottom: 0;width: 100%;padding-bottom: 0px;">
+        <footer style="bottom: 0;">
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Non-Profit</p>
+            <p class="copyright">Hive Discover - © 2021&nbsp;</p>
+        </footer>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
+    <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hivesigner"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../assets/js/script.min.js"></script>
+</body>
+
+</html>
