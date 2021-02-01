@@ -18,6 +18,34 @@
 </head>
 
 <body>
+    <div style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" id="author-card-holder">
+                    <div class="card clickable" style="width: 100%;margin: auto;margin-bottom: 20px;" onclick="openHiveSite(&quot;/@{{AUTHOR}}&quot;)"><img class="img-thumbnail card-img-top w-100 d-block" src="../assets/img/blurred-image-1.jpg" loading="lazy" style="min-height: 144px;" name="cover-image"><img class="card-img w-100 d-block" src="../assets/img/default-avatar.png" loading="lazy" style="padding-right: 25%;padding-left: 25%;margin-top: -90px;border-radius: 50%;max-width: 100%;max-height: 100%;" name="profile-image">
+                        <div class="card-body">
+                            <h4 class="card-title">{{NAME}}</h4>
+                            <h6 class="text-muted card-subtitle mb-2">@{{AUTHOR}}</h6>
+                            <p class="card-text text-center">{{DESCRIPTION}}</p>
+                            <p class="card-text text-center">{{LOCATION}}</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6 text-center">
+                                    <h6>Follower</h6>
+                                    <p name="follower-count">...</p>
+                                </div>
+                                <div class="col col-md-6 text-center">
+                                    <h6>Following</h6>
+                                    <p name="following-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cards-exists-account"></div>
+    </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
