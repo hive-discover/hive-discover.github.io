@@ -25,10 +25,14 @@
                     <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
                     <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
                     <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
-                    <li class="nav-item" id="navbar-login"><a class="nav-link" href="javascript: LoginViaHiveSigner();">Login</a></li>
                     <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Account</a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
                             <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/explore.html">Login</a>
+                            <hr><a class="dropdown-item" href="/me/settings.html">Settings</a>
                         </div>
                     </li>
                 </ul>
@@ -42,10 +46,15 @@
         <div class="container">
             <div class="row" style="padding-bottom: 19px;">
                 <div class="col-md-10 offset-md-1" style="padding-top: 10px;padding-right: 0px;padding-left: 0px;">
-                    <div class="card m-auto" style="max-width: 850px;">
-                        <div class="card-body" style="height: 60px;padding-top: 5px;padding-bottom: 5px;">
+                    <div class="card m-auto text-center" style="max-width: 850px;">
+                        <div class="card-body" style="height: 60px;padding-bottom: 0px;">
                             <form class="d-flex align-items-center"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" id="search-input" placeholder="Search for accounts" style="height: 43px;" name="q"><a class="btn btn-success btn-lg" role="button" onclick="SearchAccounts()">Search</a></form>
                         </div>
+                        <hr>
+                        <fieldset style="margin: auto;">
+                            <legend>Search in</legend>
+                            <div class="toggle"><input type="radio" id="cond_new" name="bike_cond" checked="checked"><label for="cond_new">Username</label><input type="radio" id="cond_used" name="bike_cond"><label for="cond_used">Profile Information</label></div>
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -56,7 +65,7 @@
             <div class="card-body">
                 <h4 class="card-title">Account Searching on Hive Discover</h4>
                 <h6 class="text-muted card-subtitle mb-2">Some Instructions</h6>
-                <p class="card-text">Enter an username fragment and we will show you all accounts that match your search query!</p>
+                <p class="card-text">Enter an username fragment and we will show you all accounts that match your search query! Choose between two modes: The first option will look for all accounts that includes your input into his username. The second option will have a look at the profile information like name, about and location and searches there for your input!</p>
                 <p class="card-text">We also provide a Post-Search-Engine! Have a look <a href="search-posts.html">here</a></p>
             </div>
         </div>
@@ -89,7 +98,8 @@
         <footer style="bottom: 0;">
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="/">Home</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">About us</a></li>
+                <li class="list-inline-item"><a href="legal/impressum.html">Impressum</a></li>
                 <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
             </ul>

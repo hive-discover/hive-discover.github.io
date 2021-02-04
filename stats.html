@@ -19,7 +19,7 @@
 
 <body>
     <div>
-        <div class="header-blue" style="padding-left: -;">
+        <div class="header-blue" style="padding-left: -;padding-bottom: 0;margin-bottom: 10px;">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
                 <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
@@ -27,10 +27,14 @@
                             <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
-                            <li class="nav-item" id="navbar-login"><a class="nav-link" href="javascript: LoginViaHiveSigner();">Login</a></li>
                             <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Account</a>
                                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
                                     <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/explore.html">Login</a>
+                                    <hr><a class="dropdown-item" href="/me/settings.html">Settings</a>
                                 </div>
                             </li>
                         </ul>
@@ -48,11 +52,13 @@
                 <div id="stats-chart-request-connections" style="height: 500px;"></div>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col">
                 <div id="stats-chart-types"></div>
             </div>
         </div>
+        <hr>
         <div class="row">
             <div class="col col-md-3" style="margin: auto;">
                 <div id="stats-chart-feed-requests"></div>
@@ -106,7 +112,8 @@
         <footer style="bottom: 0;">
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="/">Home</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">About us</a></li>
+                <li class="list-inline-item"><a href="legal/impressum.html">Impressum</a></li>
                 <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
             </ul>

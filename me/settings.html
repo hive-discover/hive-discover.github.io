@@ -64,10 +64,14 @@
                             <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
-                            <li class="nav-item" id="navbar-login"><a class="nav-link" href="javascript: LoginViaHiveSigner();">Login</a></li>
                             <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Account</a>
                                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
                                     <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/explore.html">Login</a>
+                                    <hr><a class="dropdown-item" href="/me/settings.html">Settings</a>
                                 </div>
                             </li>
                         </ul>
@@ -80,12 +84,24 @@
             <div class="container hero">
                 <h1 class="text-center">Adjust your Settings</h1>
                 <hr>
-                <h3 class="text-center">Choose Front-End</h3>
-                <div class="row text-center">
-                    <p class="col-md-2">Current:&nbsp;</p><input class="form-control-sm col-md-6" type="text" id="settings-front-end-url" value="https://peakd.com">
-                    <div class="dropdown float-left col-md-2"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Front-End</button>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://peakd.com&quot;)">Peakd</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://hive.blog&quot;)">Hive.blog</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://ecency.com&quot;)">Ecency</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://leofinance.io&quot;)">Leo Finance</a></div>
+                <div id="setting-choose-frontend">
+                    <h3 class="text-center">Choose Front-End</h3>
+                    <div class="row text-center">
+                        <p class="col-md-2">Current:&nbsp;</p><input class="form-control-sm col-md-6" type="text" id="settings-front-end-url" value="https://peakd.com">
+                        <div class="dropdown float-left col-md-2"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Front-End</button>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://peakd.com&quot;)">Peakd</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://hive.blog&quot;)">Hive.blog</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://ecency.com&quot;)">Ecency</a><a class="dropdown-item" href="javascript: OnChangeFronEnd(&quot;https://leofinance.io&quot;)">Leo Finance</a></div>
+                        </div>
                     </div>
+                    <hr style="padding: 30px;">
+                </div>
+                <div id="setting-delete-account" class="text-center" style="display: none;">
+                    <h3 class="text-center">Delete my Account</h3>
+                    <p class="text-center">Delete all collected data about you. Any Post and Vote from you will be deleted from our Database. <strong>Attention</strong>: Any future posts from you can result into data collection about you! If you want to forbid us to have data about you, please have a look at "Ban me".</p><button class="btn btn-primary" type="button" style="margin-left: auto;margin-right: auto;" data-toggle="modal" data-target="#modal-delete-me">Yes, delete everything about me</button>
+                    <hr style="padding: 30px;">
+                </div>
+                <div id="setting-ban-account" class="text-center" style="display: none;">
+                    <h3 class="text-center">Ban me</h3>
+                    <p class="text-center">Configure, that we are not allowed to collect data about you. Any posts from you will be ignored and not analyzed (for ever). <strong>Attention</strong>: This action cannot be undo. You have to manually mail us!</p><button class="btn btn-primary" type="button" style="margin-left: auto;margin-right: auto;" data-toggle="modal" data-target="#modal-ban-me">Yes, ban me</button>
                 </div>
             </div>
         </div>
@@ -94,13 +110,40 @@
         <footer style="bottom: 0;">
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="/">Home</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">About us</a></li>
+                <li class="list-inline-item"><a href="../legal/impressum.html">Impressum</a></li>
                 <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
                 <li class="list-inline-item"><a href="#">Privacy</a></li>
             </ul>
             <p class="copyright">Non-Profit</p>
             <p class="copyright">Hive Discover - © 2021&nbsp;</p>
         </footer>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-delete-me">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Security Question</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to delete all of your data? - At any time, you can login again and we will recollect all of your data</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-info float-left" type="button" data-dismiss="modal">Abort</button><button class="btn btn-danger" type="button" onclick="OnClickDeleteMeSure()">Yes, sure</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="modal-ban-me">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Security Question</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure to ban youself? - This cannot be undo and you can never use our service again until you manually write us!</p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-info float-left" type="button" data-dismiss="modal">Abort</button><button class="btn btn-danger" type="button" onclick="OnClickBanMeSure()">Yes, sure</button></div>
+            </div>
+        </div>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
