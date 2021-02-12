@@ -45,6 +45,12 @@
                 </div>
             </nav>
             <div class="container" style="padding-top: 45px;">
+                <div class="card" style="margin-bottom: 11px;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Feed</h4>
+                        <h6 class="text-muted card-subtitle mb-2 text-center">These posts could be interesting</h6>
+                    </div>
+                </div>
                 <div class="row" style="min-height: 100%;">
                     <div class="col col-md-4" id="card-row-1"></div>
                     <div class="col-md-4" id="card-row-2"></div>
@@ -64,10 +70,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="card" id="account-feed-end" style="margin-top: 11px;display: none;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">End</h4>
+                        <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
+                        <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="footer-basic" style="/*bottom: 0;*/width: 100%;/*padding-bottom: 0px;*/">
+    <div class="footer-basic" style="/*bottom: 0;*/width: 100%;padding: 40px;/*padding-bottom: 0px;*/">
         <footer style="bottom: 0;">
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="/">Home</a></li>
@@ -112,6 +125,11 @@
 
                                 {{BODY}}<br>
                             </p>
+                            <hr>
+                            <header>
+                                <p class="float-left">{{TAGS}}</p>
+                                <p class="float-right">{{LANG}}</p>
+                            </header>
                         </div>
                     </div>
                 </div>
@@ -128,6 +146,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hivesigner"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../assets/js/script.min.js"></script>
 </body>
