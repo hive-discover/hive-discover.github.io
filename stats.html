@@ -46,7 +46,7 @@
             </nav>
         </div>
     </div>
-    <div class="container hero">
+    <div class="container hero" style="width: 100%;">
         <div class="row">
             <div class="col">
                 <div id="stats-chart-request-connections" style="height: 500px;"></div>
@@ -60,13 +60,19 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col col-md-3" style="margin: auto;">
+            <div class="col col-md-5" style="margin: auto;">
                 <div id="stats-chart-feed-requests"></div>
             </div>
-            <div class="col col-md-3" style="margin: auto;">
+            <div class="col col-md-5" style="margin: auto;">
                 <div id="stats-chart-post-queries"></div>
             </div>
-            <div class="col col-md-3" style="margin: auto;">
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col col-md-5" style="margin: auto;">
+                <div id="stats-chart-account-data-requests"></div>
+            </div>
+            <div class="col col-md-5" style="margin: auto;">
                 <div id="stats-chart-account-queries"></div>
             </div>
         </div>
@@ -128,8 +134,8 @@
     <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@hivechain/hivejs/dist/hivejs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hivesigner"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/hivesigner@latest/dist/hivesigner.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="assets/js/script.min.js"></script>
 </body>
