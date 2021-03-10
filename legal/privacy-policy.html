@@ -27,7 +27,7 @@
 
 <body>
     <div>
-        <div class="header-blue" style="padding-left: -;">
+        <div class="header-blue" style="padding-left: -;padding-bottom: 0;">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
                 <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
@@ -52,42 +52,16 @@
                     </div>
                 </div>
             </nav>
-            <div class="container" style="padding-top: 45px;">
-                <div class="card" style="margin-bottom: 11px;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Feed</h4>
-                        <h6 class="text-muted card-subtitle mb-2 text-center">These posts could be interesting</h6>
-                    </div>
-                </div>
-                <div class="row" style="min-height: 100%;">
-                    <div class="col col-md-4" id="card-row-1"></div>
-                    <div class="col-md-4" id="card-row-2"></div>
-                    <div class="col-md-4" id="card-row-3"></div>
-                    <div class="col-md-10 offset-md-1" id="loading-animator" style="display: block;">
-                        <div class="text-center" style="margin: auto;">
-                            <div class="lds-roller">
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                            </div>
-                            <p style="color: rgb(174,174,174);">Loading</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" id="account-feed-end" style="margin-top: 11px;display: none;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">End</h4>
-                        <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
-                        <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+            <div class="container hero">
+                <div class="row">
+                    <div class="col-12 col-lg-6 col-xl-5 offset-xl-1 float-left col-md-5" style="margin: auto;">
+                        <h1 class="text-center">- Privacy Policy -</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container"></div>
     <div class="footer-basic" style="/*bottom: 0;*/width: 100%;padding: 40px;/*padding-bottom: 0px;*/">
         <footer style="bottom: 0;">
             <ul class="list-inline">
@@ -101,51 +75,6 @@
             <p class="copyright">Hive Discover - © 2021&nbsp;</p>
         </footer>
     </div>
-    <div id="card-holders" style="display: none;">
-        <div class="container" style="padding-top: 31px;">
-            <div class="row">
-                <div class="col" id="card-holder-1">
-                    <div class="card clickable" style="padding: 0px;width: 100%;margin: 10px;background: rgb(149,149,149);max-width: 100%;border-radius: 5px;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)">
-                        <div class="text-center" style="min-height: 210px;max-width: 100%;background: url(&quot;{{BACKGROUND_IMG}}&quot;) center / cover no-repeat;" name="card-image">
-                            <h4 style="color: var(--white);text-align: center;font-size: 30px;max-height: 5.9em;text-overflow: ellipsis;overflow: hidden;line-height: 1em;display: block;">{{TITLE}}&nbsp;</h4>
-                            <p style="color: var(--white);">@{{AUTHOR}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" id="card-holder-2">
-                    <div class="card clickable" style="width: 100%;min-height: 400px;max-height: 550px;min-width: 350px;margin: 10px;max-width: 100%;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)">
-                        <div class="card-body" style="width: 100%;padding: 10px;background: url(&quot;{{BACKGROUND_IMG}}&quot;) center / cover no-repeat;" name="card-image">
-                            <h2 class="card-title" style="line-height: 1.5em;max-height: 7.2em;text-overflow: ellipsis;overflow: hidden;color: rgb(255,255,255);font-size: 35px;filter: contrast(200%);">{{TITLE}}</h2>
-                            <h2 class="card-title" style="line-height: 1em;max-height: 1.5em;text-overflow: ellipsis;overflow: hidden;color: rgb(176,176,176);font-size: 20px;filter: contrast(200%);">@{{AUTHOR}}</h2>
-                            <p class="card-title" style="line-height: 1.2em;max-height: 2.6em;text-overflow: ellipsis;overflow: hidden;color: rgb(255,255,255);font-size: 23px;filter: contrast(200%);">
-
-                                {{BODY}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4" id="card-holder-3">
-                    <div class="card clickable col-md-12" style="padding: 0px;margin: 10px;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)"><img class="img-fluid card-img-top w-100 d-block" src="{{BACKGROUND_IMG}}" name="card-image">
-                        <div class="card-body">
-                            <h4 class="card-title" style="line-height: 1.5em;max-height: 3.2em;text-overflow: ellipsis;overflow: hidden;">{{TITLE}}</h4>
-                            <h6 class="text-muted card-subtitle mb-2 author-text" style="line-height: 1em;max-height: 1.1em;text-overflow: ellipsis;overflow: hidden;">@{{AUTHOR}}</h6>
-                            <p class="card-text" style="line-height: 1.5em;max-height: 13.6em;text-overflow: ellipsis;overflow: hidden;">
-
-                                {{BODY}}<br>
-                            </p>
-                            <hr>
-                            <header>
-                                <p class="float-left">{{TAGS}}</p>
-                                <p class="float-right">{{LANG}}</p>
-                            </header>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="cards-exists"></div>
-    </div>
-    <div id="need-login"></div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
