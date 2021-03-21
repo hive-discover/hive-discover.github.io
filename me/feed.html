@@ -27,7 +27,7 @@
 
 <body>
     <div>
-        <div class="header-blue" style="padding-left: -;">
+        <div class="header-blue" style="padding-left: 0;">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
                 <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
@@ -52,17 +52,18 @@
                     </div>
                 </div>
             </nav>
-            <div class="container" style="padding-top: 45px;">
-                <div class="card" style="margin-bottom: 11px;">
+            <div style="padding-left: 1;margin: 2%;">
+                <div class="card" style="margin-bottom: 11px;margin-right: 5%;margin-left: 5%;">
                     <div class="card-body">
                         <h4 class="card-title text-center">Feed</h4>
                         <h6 class="text-muted card-subtitle mb-2 text-center">These posts could be interesting</h6>
                     </div>
                 </div>
                 <div class="row" style="min-height: 100%;">
-                    <div class="col col-md-4" id="card-row-1"></div>
-                    <div class="col-md-4" id="card-row-2"></div>
-                    <div class="col-md-4" id="card-row-3"></div>
+                    <div class="col col-md-3" id="card-row-1"></div>
+                    <div class="col col-md-3" id="card-row-2"></div>
+                    <div class="col col-md-3" id="card-row-3"></div>
+                    <div class="col col-md-3" id="card-row-4"></div>
                     <div class="col-md-10 offset-md-1" id="loading-animator" style="display: block;">
                         <div class="text-center" style="margin: auto;">
                             <div class="lds-roller">
@@ -78,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="account-feed-end" style="margin-top: 11px;display: none;">
+                <div class="card" id="account-feed-end" style="margin-top: 11px;display: none;margin-right: 5%;margin-left: 5%;">
                     <div class="card-body">
                         <h4 class="card-title text-center">End</h4>
                         <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
