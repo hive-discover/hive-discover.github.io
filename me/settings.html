@@ -78,8 +78,8 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
-                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/explore.html">Login</a>
-                                    <hr><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                    <hr><a class="dropdown-item" href="/explore.html">Login</a>
                                 </div>
                             </li>
                         </ul>
@@ -107,9 +107,9 @@
                     <p class="text-center">Delete all collected data about you. Any Post and Vote from you will be deleted from our Database. <strong>Attention</strong>: Any future posts from you can result into data collection about you! If you want to forbid us to have data about you, please have a look at "Ban me".</p><button class="btn btn-primary" type="button" style="margin-left: auto;margin-right: auto;" data-toggle="modal" data-target="#modal-delete-me">Yes, delete everything about me</button>
                     <hr style="padding: 30px;">
                 </div>
-                <div id="setting-ban-account" class="text-center" style="display: none;">
-                    <h3 class="text-center">Ban me</h3>
-                    <p class="text-center">Configure, that we are not allowed to collect data about you. Any posts from you will be ignored and not analyzed (for ever). <strong>Attention</strong>: This action cannot be undo. You have to manually mail us!</p><button class="btn btn-primary" type="button" style="margin-left: auto;margin-right: auto;" data-toggle="modal" data-target="#modal-ban-me">Yes, ban me</button>
+                <div id="setting-ban-account" class="text-center" style="/*display: none;*/">
+                    <h3 class="text-center">Ban me / Unban me</h3>
+                    <p class="text-center">Configure, that we are not allowed to collect data about you. Any posts from you will be ignored and not analyzed (for ever)</p><button class="btn btn-primary" type="button" style="margin-left: auto;margin-right: auto;" data-toggle="modal" data-target="#modal-ban-me">Ban me or Unban me</button>
                 </div>
             </div>
         </div>
@@ -148,9 +148,35 @@
                     <h4 class="modal-title">Security Question</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure to ban youself? - This cannot be undo and you can never use our service again until you manually write us!</p>
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">Ban me</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">Unban me</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" role="tabpanel" id="tab-1">
+                                <p class="text-center">Are you sure to ban youself? - When yes, then continue<br></p>
+                                <p class="text-center">It can take a while that we proceed your request (because of HIVE-Blockchain limitations). Usually it only takes some minutes</p>
+                                <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                    <div class="input-group-prepend"><span class="input-group-text">Hive Account</span></div><input class="form-control" type="text" id="settings-ban-me-username">
+                                    <div class="input-group-append"></div>
+                                </div>
+                                <p class="text-center">You will be redirected to HiveSigner to complete the Operation</p>
+                                <hr><button class="btn btn-danger d-flex d-lg-flex align-self-end justify-content-lg-start" type="button" onclick="OnClickBanMeSure()" style="margin: auto;">Yes, I am sure</button>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="tab-2">
+                                <p class="text-center">You want to remove your ban entry? - When yes, then continue<br></p>
+                                <p class="text-center">It can take a while that we proceed your request (because of HIVE-Blockchain limitations). Usually it only takes some minutes and then you can use our service again!</p>
+                                <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                    <div class="input-group-prepend"><span class="input-group-text">Hive Account</span></div><input class="form-control" type="text" id="settings-unban-me-username">
+                                    <div class="input-group-append"></div>
+                                </div>
+                                <p class="text-center">You will be redirected to HiveSigner to complete the Operation</p>
+                                <hr><button class="btn btn-success d-flex d-lg-flex align-self-end justify-content-lg-start" type="button" onclick="OnClickUnbanMeSure()" style="margin: auto;">Yes, unban me</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer"><button class="btn btn-info float-left" type="button" data-dismiss="modal">Abort</button><button class="btn btn-danger" type="button" onclick="OnClickBanMeSure()">Yes, sure</button></div>
             </div>
         </div>
     </div>
