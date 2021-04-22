@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 <link href="https://raw.githubusercontent.com/hive-discover/hive-discover/main/Logo/Favicon.jpg" rel="icon">
 </head>
 
@@ -62,24 +63,69 @@
     </nav>
     <div>
         <div class="container">
-            <div class="row" style="padding-bottom: 19px;">
-                <div class="col-md-10 offset-md-1" style="padding-top: 10px;padding-right: 0px;padding-left: 0px;">
-                    <div class="card m-auto" style="max-width: 850px;">
-                        <div class="card-body" style="height: 60px;padding-top: 5px;padding-bottom: 5px;">
-                            <form class="d-flex align-items-center"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" id="search-input" placeholder="Search topics or keywords" style="height: 43px;" name="q"><a class="btn btn-success btn-lg" role="button" onclick="SearchPosts()">Search</a></form>
+            <div class="card m-auto" style="max-width: 850px;">
+                <div class="card-body" style="padding-top: 5px;padding-bottom: 5px;">
+                    <form class="d-flex align-items-center" style="margin: 5px;"><i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" id="search-input" placeholder="Search topics or keywords" style="height: 43px;" name="q"><a class="btn btn-success btn-lg" role="button" onclick="onClickSearchPosts()">Search</a>
+                        <hr>
+                    </form>
+                    <div class="text-center" style="padding-top: 5px;"><a class="btn btn-link btn-lg" data-toggle="collapse" aria-expanded="true" aria-controls="collapse-1" href="#collapse-1" role="button">More Options</a>
+                        <div class="collapse show" id="collapse-1">
+                            <div class="row" style="margin-top: 5px;text-align: center;">
+                                <div class="col text-center" style="text-align: center;">
+                                    <legend class="text-center" style="text-align: center;">Author</legend><input class="form-control-lg flex-shrink-1 form-control-borderless" type="search" id="search-specify-author" placeholder="  @username" name="q" style="padding-left: 0;padding-right: 0;width: 100%;border-style: solid;border-color: rgb(201,196,196);">
+                                </div>
+                                <div class="col text-center" style="text-align: center;">
+                                    <legend class="text-center" style="text-align: center;">Date</legend>
+                                    <form method="post">
+                                        <div class="form-group">
+                                            <div class="input-group"><input class="form-control" type="text" id="search-date-range" name="daterange">
+                                                <div class="input-group-append"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row" style="margin-top: 5px;text-align: center;">
+                                <div class="col text-center" style="text-align: center;">
+                                    <legend class="text-center" style="text-align: center;">Language</legend>
+                                    <form class="d-flex align-items-center" style="margin: 5px;"><input class="form-control form-control-lg" type="url" id="search-select-language" placeholder="Choose Language" readonly="">
+                                        <div class="dropdown" style="padding-left: 10px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button" style="padding-right: 6px;padding-left: 6px;">Select</button>
+                                            <div class="dropdown-menu" id="search-select-language-items">
+                                                <p class="text-center">Language Codes</p>
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr></tr>
+                                                        </thead>
+                                                        <tbody id="search-select-langauge-table"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-top: 5px;text-align: center;">
+                                <div class="col text-center col-md-2" style="text-align: center;">
+                                    <legend class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="text-align: center;">Sort Order</legend>
+                                </div>
+                                <div class="col text-center" style="text-align: center;">
+                                    <form class="d-flex align-items-center" style="margin: 5px;"><input class="form-control form-control-lg" type="url" id="search-sort-order-selected" readonly="" value="Score">
+                                        <div class="dropdown" style="padding-left: 10px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button" style="padding-right: 6px;padding-left: 6px;">Select</button>
+                                            <div class="dropdown-menu" id="search-select-language-items-1"><a class="dropdown-item" id="search-sort-order-personalized" href="javascript:setTextValue(&quot;search-sort-order-selected&quot;,&quot;Personalized&quot;)" style="display: none;">Personalized<br></a><a class="dropdown-item" href="javascript:setTextValue(&quot;search-sort-order-selected&quot;,&quot;Score&quot;)">Score</a><a class="dropdown-item" href="javascript:setTextValue(&quot;search-sort-order-selected&quot;,&quot;Latest&quot;)">Latest</a><a class="dropdown-item" href="javascript:setTextValue(&quot;search-sort-order-selected&quot;,&quot;Oldest&quot;)">Oldest</a></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row" id="search-settings" style="padding-bottom: 19px;display: none;">
-                <div class="col-md-10 offset-md-1" style="padding-top: 10px;padding-right: 0px;padding-left: 0px;">
-                    <div class="card m-auto" style="max-width: 850px;">
-                        <div class="card-body" style="height: 60px;padding-top: 5px;padding-bottom: 5px;">
-                            <form class="d-flex align-items-center"><input class="form-control form-control-lg" type="url" id="search-select-language" placeholder="Choose Language" readonly="">
-                                <div class="dropdown" style="padding-left: 10px;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button">Select</button>
-                                    <div class="dropdown-menu" id="search-select-language-items"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                                </div>
-                            </form>
+                    <div class="row" id="search-settings" style="padding-bottom: 19px;display: none;">
+                        <div class="col-md-10 offset-md-1" style="padding-top: 10px;padding-right: 0px;padding-left: 0px;">
+                            <div class="card m-auto" style="max-width: 850px;">
+                                <div class="card-body" style="height: 60px;padding-top: 5px;padding-bottom: 5px;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,7 +221,7 @@
                 <li class="list-inline-item"><a href="/">Home</a></li>
                 <li class="list-inline-item"><a href="javascript: openHiveSite(&quot;/@action-chain&quot;)">About us</a></li>
                 <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
-                <li class="list-inline-item"><a href="../legal/disclaimer.html">Dislcaimer</a></li>
+                <li class="list-inline-item"><a href="../legal/disclaimer.html">Disclaimer</a></li>
                 <li class="list-inline-item"><a href="../legal/impressum.html">Impressum</a></li>
                 <li class="list-inline-item"><a href="../legal/privacy-policy.html">Privacy</a></li>
             </ul>
@@ -187,6 +233,9 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
     <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
