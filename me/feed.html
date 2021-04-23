@@ -53,7 +53,7 @@
                     </div>
                 </div>
             </nav>
-            <div style="padding-left: 1;margin: 2%;">
+            <div style="padding-left: 1;margin: 2%;margin-bottom: 0px;">
                 <div class="card" style="margin-bottom: 11px;margin-right: 5%;margin-left: 5%;">
                     <div class="card-body">
                         <h4 class="card-title text-center">Feed</h4>
@@ -80,11 +80,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" id="account-feed-end" style="margin-top: 11px;display: none;margin-right: 5%;margin-left: 5%;">
+                <div class="card" id="account-feed-end" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
                     <div class="card-body">
                         <h4 class="card-title text-center">End</h4>
                         <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
                         <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+                    </div>
+                    <div class="card" id="account-feed-end-1" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">End</h4>
+                            <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
+                            <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" id="account-feed-nothing" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Nothing is available</h4>
+                        <h6 class="text-muted card-subtitle mb-2 text-center">Unfortunately, we can't find anything interesting for them. This can have several causes:</h6>
+                        <ul>
+                            <li>They just started the analysis a few moments ago. Then we have good news: try again in a few seconds and there should be something available here!</li>
+                            <li>Another reason for the message is if no votes/posts have happened in the last 100 days (or only on non-supported content). Then you simply have to vote/post a post that we support</li>
+                            <li>It may also be that our service is having problems at the moment. Try again later... </li>
+                        </ul>
+                        <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Retry now</button></p>
+                    </div>
+                    <div class="card" id="account-feed-end-1" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
+                        <div class="card-body">
+                            <h4 class="card-title text-center">End</h4>
+                            <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
+                            <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+                        </div>
                     </div>
                 </div>
             </div>
