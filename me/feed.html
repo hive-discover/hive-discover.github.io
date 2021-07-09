@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/styles.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
 <link href="https://raw.githubusercontent.com/hive-discover/hive-discover/main/Logo/Favicon.jpg" rel="icon">
 </head>
 
@@ -58,6 +59,9 @@
                     <div class="card-body">
                         <h4 class="card-title text-center">Feed</h4>
                         <h6 class="text-muted card-subtitle mb-2 text-center">These posts could be interesting</h6>
+                        <div class="slidecontainer">
+                            <p>&nbsp;<span id="demo">Decide how distant posts can be</span></p><input type="range" id="abstractionsValue" class="slider" min="1" max="30" value="3" onchange="RedirectThisSide(&#39;/me/feed.html?abstraction_value=&#39; + this.value)">
+                        </div>
                     </div>
                 </div>
                 <div class="row" style="min-height: 100%;">
@@ -184,6 +188,7 @@
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../assets/js/script.min.js"></script>
 </body>
