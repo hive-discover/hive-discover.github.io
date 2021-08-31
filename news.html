@@ -10,18 +10,18 @@
     <meta name="description" content="Our AI will find anything on HIVE. Look what it got for you!">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hive-Discover">
-    <link rel="icon" type="image/jpeg" sizes="250x250" href="../assets/img/Favicon.jpg">
-    <link rel="icon" type="image/gif" sizes="500x500" href="../assets/img/Hive-Discover-Logo-Block.gif">
-    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/jpeg" sizes="250x250" href="assets/img/Favicon.jpg">
+    <link rel="icon" type="image/gif" sizes="500x500" href="assets/img/Hive-Discover-Logo-Block.gif">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
-    <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
@@ -59,67 +59,74 @@
             <div style="padding-left: 1;margin: 2%;margin-bottom: 0px;">
                 <div class="card" style="margin-bottom: 11px;margin-right: 5%;margin-left: 5%;">
                     <div class="card-body">
-                        <h4 class="card-title text-center">Feed</h4>
-                        <h6 class="text-muted card-subtitle mb-2 text-center">These posts could be interesting</h6>
-                        <div class="slidecontainer">
-                            <p>&nbsp;<span id="demo">Decide how distant posts can be</span></p><input type="range" id="abstractionsValue" class="slider" min="1" max="30" value="3" onchange="RedirectThisSide(&#39;/me/feed.html?abstraction_value=&#39; + this.value)">
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="min-height: 100%;">
-                    <div class="col col-md-3" id="card-row-1"></div>
-                    <div class="col col-md-3" id="card-row-2"></div>
-                    <div class="col col-md-3" id="card-row-3"></div>
-                    <div class="col col-md-3" id="card-row-4"></div>
-                    <div class="col-md-10 offset-md-1" id="loading-animator" style="display: block;">
-                        <div class="text-center" style="margin: auto;">
-                            <div class="lds-roller">
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                                <div style="background: var(--dark);"></div>
-                            </div>
-                            <p style="color: rgb(174,174,174);">Loading</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" id="account-feed-end" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">End</h4>
-                        <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
-                        <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
-                    </div>
-                    <div class="card" id="account-feed-end-1" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">End</h4>
-                            <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
-                            <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card" id="account-feed-nothing" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
-                    <div class="card-body">
-                        <h4 class="card-title text-center">Nothing is available</h4>
-                        <h6 class="text-muted card-subtitle mb-2 text-center">Unfortunately, we can't find anything interesting for them. This can have several causes:</h6>
-                        <ul>
-                            <li>They just started the analysis a few moments ago. Then we have good news: try again in a few seconds and there should be something available here!</li>
-                            <li>Another reason for the message is if no votes/posts have happened in the last 100 days (or only on non-supported content). Then you simply have to vote/post a post that we support</li>
-                            <li>It may also be that our service is having problems at the moment. Try again later... </li>
-                        </ul>
-                        <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Retry now</button></p>
-                    </div>
-                    <div class="card" id="account-feed-end-1" style="display: none;margin-right: 5%;margin-left: 5%;margin-top: 20px;">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">End</h4>
-                            <h6 class="text-muted card-subtitle mb-2 text-center">No more posts were loaded</h6>
-                            <p class="text-muted mb-2 text-center"><button class="btn btn-primary" type="button" onclick="window.location.reload();">Refresh my Feed</button></p>
+                        <h4 class="card-title text-center">News on HIVE</h4>
+                        <h6 class="text-muted card-subtitle mb-2 text-center">Interesting posts which were classified as "news"</h6>
+                        <hr>
+                        <p class="text-center">All Topics:</p>
+                        <div class="row text-center" style="margin: auto;">
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('sports');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Sports</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('tech');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Technology</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('crypto');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Crypto</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('politics');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Politics</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('business');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Business</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('gaming');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Gaming</a></div>
+                            <div class="col text-center col-md-4" style="padding: 10px;padding-top: 0;"><a href="javascript: scrollToNews('science');" style="color: var(--blue);text-align: center;border-bottom-width: 5px;border-bottom-style: solid;">Science</a></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="container" id="news-cards-place"></div>
+            <div id="loading-animator">
+                <div class="text-center" style="margin: auto;">
+                    <div class="lds-roller">
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                        <div style="background: var(--dark);"></div>
+                    </div>
+                    <p style="color: rgb(174,174,174);">Loading</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="card-holders" style="/*display: none;*/">
+        <div class="container" id="template-news-posts" style="display: none">
+            <div class="card clickable" style="display: block;max-width: auto;padding-bottom: 30px;" onclick="openHiveSite(&#39;{{POST_URL}}&#39;)"><img class="img-fluid card-img-top w-100 d-block" src="{{BACKGROUND_IMG}}" name="card-image" style="display: block;">
+                <div class="card-body" style="display: block;padding-bottom: 0px;">
+                    <h4 class="card-title" style="display: block">{{TITLE}}</h4>
+                    <h6 class="text-muted card-subtitle mb-2 author-text" style="display: block">@{{AUTHOR}}</h6>
+                    <p class="card-text" style="line-height: 1.5em;max-height: 13.6em;text-overflow: ellipsis;overflow: hidden;">
+
+                        {{BODY}}<br>
+                    </p>
+                    <hr style="display: block">
+                    <header style="display: block">
+                        <p class="float-left" style="display: block">{{TAGS}}</p>
+                        <p class="float-right" style="display: block">{{LANG}}</p>
+                    </header>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="template-news-rows" style="display: none">
+            <div class="row">
+                <div class="col col-md-4" name="col-1"></div>
+                <div class="col col-md-4" name="col-2"></div>
+                <div class="col col-md-4" name="col-3"></div>
+            </div>
+        </div>
+        <div class="container" id="template-news-card" style="display: none;">
+            <div class="card" style="margin: 0px;margin-top: 10px;background: rgba(0, 0, 0, 0);">
+                <div class="card-body" style="padding: 20px;background: var(--white);">
+                    <h4 class="card-title">{{NEWS_NAME}} News</h4>
+                    <h6 class="text-muted card-subtitle mb-2">Latest Posts:</h6>
+                    <div name="row-container"></div>
+                    <p class="text-center"><button class="btn btn-primary text-center" type="button" name="btn-spand" onclick="onToggleNewsView(this)">\/</button></p>
+                </div>
+            </div>
+            <hr>
         </div>
     </div>
     <div class="footer-basic" style="/*bottom: 0;*/width: 100%;padding: 40px;/*padding-bottom: 0px;*/">
@@ -128,9 +135,9 @@
                 <li class="list-inline-item"><a href="/">Home</a></li>
                 <li class="list-inline-item"><a href="javascript: openHiveSite(&quot;/@action-chain&quot;)">About us</a></li>
                 <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
-                <li class="list-inline-item"><a href="../legal/disclaimer.html">Disclaimer</a></li>
-                <li class="list-inline-item"><a href="../legal/impressum.html">Impressum</a></li>
-                <li class="list-inline-item"><a href="../legal/privacy-policy.html">Privacy</a></li>
+                <li class="list-inline-item"><a href="legal/disclaimer.html">Disclaimer</a></li>
+                <li class="list-inline-item"><a href="legal/impressum.html">Impressum</a></li>
+                <li class="list-inline-item"><a href="legal/privacy-policy.html">Privacy</a></li>
             </ul>
             <p class="copyright">Non-Profit&nbsp; -&nbsp; Version 0.8 beta<br></p>
             <p class="copyright">Hive Discover - © 2021&nbsp;</p>
@@ -180,9 +187,8 @@
         </div>
         <div id="cards-exists"></div>
     </div>
-    <div id="need-login"></div>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
     <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
@@ -194,7 +200,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="https://github.com/mouse0270/bootstrap-notify/releases/download/3.1.3/bootstrap-notify.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="../assets/js/script.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
 </body>
 
 </html>
