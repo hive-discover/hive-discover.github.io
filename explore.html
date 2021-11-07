@@ -30,7 +30,7 @@
 
 <body>
     <div>
-        <div class="header-blue" style="padding-left: -;">
+        <div class="header-blue" style="padding-bottom: 0;">
             <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
                 <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
@@ -46,59 +46,50 @@
                             </li>
                             <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
                                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/settings.html">Settings</a>
-                                    <hr><a class="dropdown-item" href="/explore.html">Login</a>
+                                    <hr><a class="dropdown-item" href="javascript:LoginViaHiveSigner()">Login</a>
                                 </div>
                             </li>
                         </ul>
-                        <form class="form-inline float-right" action="/search-posts.html">
-                            <div class="form-group" style="padding-left: 22px;"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" id="search-field" name="q" style="text-align: left;opacity: 1;border-style: none;border-color: var(--gray);border-right: 1px none var(--dark);border-bottom-style: solid;border-bottom-color: var(--dark);color: rgb(255,255,255);" autofocus="" autocomplete="on" required="" minlength="1" placeholder="Search..."></div><a class="btn btn-light action-button" role="button" href="javascript: OnSearchBarGo();" style="padding-right: 19px;">GO</a>
+                        <form class="form-inline float-right" action="/search-posts.html" style="padding-left: 10px;"><i class="fa fa-search" style="color: rgb(255,255,255);padding-right: 2px;"></i>
+                            <div class="form-group" style="padding-left: 5px;"><label for="search-field"></label><input class="form-control search-field" type="search" id="search-field" name="q" style="text-align: left;opacity: 1;border-style: none;border-color: var(--gray);border-right: 1px none var(--dark);border-bottom-style: solid;border-bottom-color: var(--dark);color: rgb(255,255,255);" autofocus="" autocomplete="on" required="" minlength="1" placeholder="Search..."></div><a class="btn btn-light action-button" role="button" href="javascript: OnSearchBarGo();" style="margin-left: -50px;">&nbsp;GO</a>
                         </form>
                     </div>
                 </div>
             </nav>
             <div class="container hero">
-                <h1 class="text-center">Login via HiveSigner</h1>
-                <p class="text-center">You need to be signed in to get a feed based on your activities. Else, anyone could use your username and can look at your interests. So, to achieve that your personal data is safe, you have to grant us an acces token with HiveSigner (ONLY reading permission)</p>
-                <hr>
-                <p class="text-center"><strong>Attention</strong>: As soon as you logged in, our AI analyze you Account Data. Please have a look at our Privacy Settings and only continue after you read and understood everything! Any Question? - write us on HIVE or per Mail</p>
-                <p class="text-center"><button class="btn btn-primary btn-lg text-left action-button" type="button" style="margin-right: 10px;margin-left: 10px;" onclick="LoginViaHiveSigner()">Go to HiveSigner&nbsp; &nbsp;&nbsp;<img src="https://hivesigner.com/logo.svg" loading="lazy" style="max-height: 50px;"></button></p>
+                <h1 class="text-center" style="margin-top: 0;"><strong>Login required to use Hive Discover</strong></h1>
+                <p class="text-center" style="margin-bottom: 0;padding-bottom: 35px;font-size: 25px;text-align: center;">Follow these 3 steps to login with your HIVE Account</p>
             </div>
         </div>
     </div>
-    <div class="features-clean" style="display: none;">
+    <div class="features-clean" style="/*display: none;*/">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Features</h2>
-                <p class="text-center"></p>
+                <h2 class="text-center" style="margin-bottom: 20px;" name="#get-started">How to get started</h2>
+                <p class="text-center" style="width: 500px;text-align: center;font-size: 19px;"><em>Because we value and protect your privacy, each new user must consent to our processing. This action is transparently logged in the HIVE blockchain.</em></p>
             </div>
-            <div class="row features">
-                <div class="col-sm-6 col-lg-4 item"><i class="material-icons icon">https</i>
-                    <h3 class="name">Privacy</h3>
-                    <p class="description">We value your privacy. That is why we use HTTPS Connections and modern encryption techniques to be a Vault for your data.</p>
+            <div class="row articles" style="padding-bottom: 7px;margin-top: -20px;">
+                <div class="col col-md-4">
+                    <h2 class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 0px;margin-bottom: 20px;">1. Privacy Policy</h2>
+                    <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center">First of all, you need to read and understand our privacy policy. If you have any questions, please do not hesitate to contact us!</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-github icon"></i>
-                    <h3 class="name">Open Source</h3>
-                    <p class="description">Every codefile is published on GitHub. Look at them <a href="https://github.com/Hive-Discover">here</a>...</p>
+                <div class="col col-md-4">
+                    <h2 class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 0px;margin-bottom: 20px;">2. Log Acceptance</h2>
+                    <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center">After that, your acceptance must be documented. All you have to do is confirm a CustomJSON transaction via HiveSigner. Enter your Username below:</p>
+                    <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                        <div class="input-group-prepend"><span class="input-group-text">Username</span></div><input class="form-control" type="text" id="confirm-acceptance-username">
+                        <div class="input-group-append"></div>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="icon">
-                        <path d="M12 19C10.067 19 8.31704 18.2165 7.05029 16.9498L12 12L12 5C15.866 5 19 8.13401 19 12C19 15.866 15.866 19 12 19Z" fill="currentColor"></path>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="currentColor"></path>
-                    </svg>
-                    <h3 class="name">Future</h3>
-                    <p class="description">In the next time, we will launch our custom API. Then, popular Front-Ends like Peakd or Hive.blog could integrate our service.</p>
+                <div class="col col-md-4">
+                    <h2 class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding-top: 0px;margin-bottom: 20px;">3. Login</h2>
+                    <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center">Now you have to wait a few seconds for the HIVE blockchain to record your transaction and for us to see it. After that, just grant us an access token via HiveSigner (Reading Only)!</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-leaf icon"></i>
-                    <h3 class="name">Organic</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-plane icon"></i>
-                    <h3 class="name">Fast</h3>
-                    <p class="description">We try to achieve the best performance. That is why we nearly got a copy of the blockchain locally saved in a database.&nbsp;</p>
-                </div>
-                <div class="col-sm-6 col-lg-4 item"><i class="fas fa-coins icon"></i>
-                    <h3 class="name">Free to use</h3>
-                    <p class="description">Our service is 100% free for everyone!</p>
-                </div>
+            </div>
+            <div class="row articles" style="padding-bottom: 20px;">
+                <div class="col col-md-4"><a class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" href="legal/privacy-policy.html" style="text-align: center;font-size: 20px;">Privacy Policy&nbsp;&nbsp;<i class="fa fa-arrow-circle-right"></i></a></div>
+                <div class="col col-md-4"><a class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" href="javascript:OnClickConfirmAcceptanceTransaction();" style="text-align: center;font-size: 20px;">Confirm Transaction&nbsp;&nbsp;<i class="fa fa-arrow-circle-right"></i></a></div>
+                <div class="col col-md-4"><a class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" href="javascript:LoginViaHiveSigner()" style="text-align: center;font-size: 20px;">Login with HiveSigner&nbsp;&nbsp;<i class="fa fa-arrow-circle-right"></i></a></div>
             </div>
         </div>
     </div>
