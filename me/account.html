@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="ha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link href="https://raw.githubusercontent.com/hive-discover/hive-discover/main/Logo/Favicon.jpg" rel="icon">
 </head>
 
@@ -40,6 +41,7 @@
                             <li class="nav-item"><a class="nav-link" href="/news.html">News</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
                             <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
+                            <li class="nav-item" style="display: none;"><a class="nav-link" href="docs.html">Docs</a></li>
                             <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#" style="font-size: 16px;" name="label-with-username">Account</a>
                                 <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
                                     <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
@@ -95,6 +97,13 @@
                         <p id="account-element-count" style="text-align: center;"></p>
                     </div>
                 </div>
+                <hr>
+                <h1 id="heading-similar-accounts" style="margin-top: 0;display: none;">Similar Accounts</h1>
+                <div class="row text-center d-xl-flex justify-content-xl-center" id="similar-accounts">
+                    <div class="col col-md-4" id="card-row-1"></div>
+                    <div class="col col-md-4" id="card-row-2"></div>
+                    <div class="col col-md-4" id="card-row-3"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,6 +120,34 @@
             <p class="copyright">Non-Profit&nbsp; -&nbsp; Version 0.8 beta<br></p>
             <p class="copyright">Hive Discover - © 2021&nbsp;</p>
         </footer>
+    </div>
+    <div style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" id="author-card-holder">
+                    <div class="card clickable" style="width: 100%;margin: auto;margin-bottom: 20px;" onclick="openHiveSite(&quot;/@{{AUTHOR}}&quot;)"><img class="img-thumbnail card-img-top w-100 d-block" src="../assets/img/blurred-image-1.jpg" loading="lazy" style="min-height: 144px;" name="cover-image"><img class="card-img w-100 d-block" src="../assets/img/default-avatar.png" loading="lazy" style="padding-right: 25%;padding-left: 25%;margin-top: -90px;border-radius: 50%;max-width: 100%;max-height: 100%;" name="profile-image">
+                        <div class="card-body">
+                            <h4 class="card-title">{{NAME}}</h4>
+                            <h6 class="text-muted card-subtitle mb-2">@{{AUTHOR}}</h6>
+                            <p class="card-text text-center" style="color: rgb(0,0,0);">{{DESCRIPTION}}</p>
+                            <p class="card-text text-center" style="color: rgb(0,0,0);">{{LOCATION}}</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6 text-center">
+                                    <h6>Follower</h6>
+                                    <p name="follower-count">...</p>
+                                </div>
+                                <div class="col col-md-6 text-center">
+                                    <h6>Following</h6>
+                                    <p name="following-count">...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cards-exists-account"></div>
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
