@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hive Discover</title>
+    <meta name="twitter:description" content="Our AI will find anything on HIVE. Look what it got for you!">
+    <meta name="twitter:image" content="../assets/img/Logo-Modern.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hive-Discover">
+    <meta name="description" content="">
+    <link rel="icon" type="image/jpeg" sizes="250x250" href="assets/img/Favicon.jpg">
+    <link rel="icon" type="image/gif" sizes="500x500" href="assets/img/Hive-Discover-Logo-Stamp.gif">
+    <link rel="icon" type="image/jpeg" sizes="250x250" href="assets/img/Favicon.jpg">
+    <link rel="icon" type="image/jpeg" sizes="250x250" href="assets/img/Favicon.jpg">
+    <link rel="icon" type="image/gif" sizes="500x500" href="assets/img/Hive-Discover-Logo-Block.gif">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="ha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="https://raw.githubusercontent.com/hive-discover/hive-discover/main/Logo/Favicon.jpg" rel="icon">
+</head>
+
+<body>
+    <div>
+        <div class="header-blue" style="padding-bottom: 0;">
+            <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+                <div class="container-fluid"><a class="navbar-brand" href="/">Hive Discover</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1" style="color: var(--dark);background: rgba(255,255,255,0);">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link" href="/explore.html">Explore</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/news.html">News</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-accounts.html">Accounts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/search-posts.html">Posts</a></li>
+                            <li class="nav-item" style="/*display: none;*/"><a class="nav-link" href="docs.html">Docs</a></li>
+                            <li class="nav-item dropdown" id="navbar-account" style="margin-top: 0px;display: none;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#" style="font-size: 16px;" name="label-with-username">Account</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/account.html">Profile</a><a class="dropdown-item" href="/me/feed.html">Feed</a><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                    <hr><a class="dropdown-item" href="/me/logout.html">Logout</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown" id="navbar-login" style="margin-top: 0px;"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#" style="font-size: 16px;" name="label-with-username">Profile</a>
+                                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="/me/settings.html">Settings</a>
+                                    <hr><a class="dropdown-item" href="javascript:LoginViaHiveSigner()">Login</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <form class="form-inline float-right" action="/search-posts.html" style="padding-left: 10px;"><i class="fa fa-search" style="color: rgb(255,255,255);padding-right: 2px;"></i>
+                            <div class="form-group" style="padding-left: 5px;"><label for="search-field"></label><input class="form-control search-field" type="search" id="search-field" name="q" style="text-align: left;opacity: 1;border-style: none;border-color: var(--gray);border-right: 1px none var(--dark);border-bottom-style: solid;border-bottom-color: var(--dark);color: rgb(255,255,255);" autofocus="" autocomplete="on" required="" minlength="1" placeholder="Search..."></div><a class="btn btn-light action-button" role="button" href="javascript: OnSearchBarGo();" style="margin-left: -50px;">&nbsp;GO</a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="container hero">
+                <h1 class="text-center" style="margin-top: 0;"><strong>Hive Discover - API&nbsp;Documentation</strong></h1>
+                <p class="text-center" style="margin-bottom: 0;padding-bottom: 30px;font-size: 25px;text-align: center;padding-left: 0px;">Because we are better at backend work and not good designers, we want to leave the frontend to you! We provide the API and you present our results nicely - deal?!</p>
+            </div>
+        </div>
+    </div>
+    <div class="features-clean" style="/*display: none;*/">
+        <div class="container">
+            <div class="intro" style="margin-bottom: 0;">
+                <h2 class="text-center" name="#get-started">Important Notes</h2>
+            </div>
+            <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="color: var(--gray-dark);">You can integrate Hive Discover into your service if you accept and comply with the following rules:</p>
+            <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;color: var(--gray-dark);">-&nbsp;You are only asking information from yourself / a user who wants this</p>
+            <p class="text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="margin-bottom: 0;color: var(--gray-dark);">-&nbsp;For functions realised with Hive Discover, you refer to @action-chain. A simple "Powered by @action-chain" is sufficient</p>
+            <hr>
+            <div class="intro">
+                <h2 class="text-center" style="margin-bottom: 20px;" name="#get-started">V1 Routes</h2>
+                <p class="text-center">All requests must be sent to "https://api.hive-discover.tech/v1". There is no HTTP port for security reasons.</p>
+            </div>
+            <div id="ping">
+                <h2>GET - Ping - "/"<button class="btn btn-primary float-right" id="btn-request-ping" type="button" onclick="OnClickRunRequest(&quot;ping&quot;)">Run Request</button></h2>
+                <p>Just ask if the service is currently active and ready to work. Should return a JSON response with the status "ok".</p>
+                <div id="request-ping"></div>
+            </div>
+            <hr>
+            <div id="account-group">
+                <h1>Accounts</h1>
+                <div id="accounts">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;GET - Information - "/accounts"<button class="btn btn-primary float-right" id="btn-request-accounts" type="button" onclick="OnClickRunRequest(&quot;accounts&quot;)">Run Request</button></h2>
+                    <p>Get information about an account registered with Hive Discover. If this account has not accepted the Privacy Policy, it will respond with a status of "failed". If the user has no posts/votes in the last 100 days, empty categories and languages will be displayed. In this example request, the "ac-bot" account is queried.&nbsp;<br>Parameters as query variables:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-5">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Username</span></div><input class="form-control" type="text" id="txt-accounts-username" value="ac-bot">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-7">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">HiveSigner Access Token</span></div><input class="form-control" type="text" id="txt-accounts-access-token" value="ac-bot-test-access-token">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-accounts"></div>
+                </div>
+                <hr>
+                <div id="accounts_feed">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;GET - Feed - "/accounts/feed"<button class="btn btn-primary float-right" id="btn-request-accounts_feed" type="button" onclick="OnClickRunRequest(&quot;accounts_feed&quot;)">Run Request</button></h2>
+                    <p>This is one of the main features of Hive Discover: the personalised feed. If the user has not accepted our privacy policy, a "failed" status will be displayed. If the user has not made any VOtes/posts in the last 100 days, an empty feed is returned.&nbsp;<br>Parameters as query variables:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-7">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Username</span></div><input class="form-control" type="text" id="txt-accounts-feed-username" value="ac-bot">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-5">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-accounts-feed-amount" value="7" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-9" style="margin: auto;">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">HiveSigner Access Token</span></div><input class="form-control" type="text" id="txt-accounts-feed-access-token" value="ac-bot-test-access-token">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-accounts_feed"></div>
+                </div>
+            </div>
+            <hr>
+            <div id="search-group">
+                <h1>Searching</h1>
+                <div id="search_posts">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;POST - Search for Posts - "/search/posts"<button class="btn btn-primary float-right" id="btn-request-search_posts" type="button" onclick="OnClickRunRequest(&quot;search_posts&quot;)">Run Request</button></h2>
+                    <p>Search by topics or categories and get matching posts from the last 100 days. You can sort by score/oldest/latest or by personalised sorting, which requires the username and access token. If the account does not agreed to our Privacy Policy or has no posts/votes in the last 100 days, this will fail!<br>Parameters&nbsp;in body as a json-object:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-8">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">query</span></div><input class="form-control" type="text" id="txt-serch-posts-query" value="football">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-2">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-search-posts-amount" value="7" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-2" style="margin: auto;width: 100%;">
+                            <div class="dropdown" style="margin: auto;width: 100;"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-toggle="dropdown" id="btn-search-posts-sorting" type="button" style="width: 100%;">score</button>
+                                <div class="dropdown-menu"><a class="dropdown-item" href="javascript:setInnerText('btn-search-posts-sorting', 'score', null);">Score</a><a class="dropdown-item" href="javascript:setInnerText('btn-search-posts-sorting', 'latest', null);">Latest</a><a class="dropdown-item" href="javascript:setInnerText('btn-search-posts-sorting', 'oldest', null);">Oldest</a><a class="dropdown-item" href="javascript:setInnerText('btn-search-posts-sorting', 'personalized', null);">Personalized<br></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Necessary points for the sorting mode "personalised":</p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-5">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Username</span></div><input class="form-control" type="text" id="txt-search-posts-username" value="ac-bot">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-7">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">HiveSigner Access Token</span></div><input class="form-control" type="text" id="txt-search-posts-access-token" value="ac-bot-test-access-token">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-search_posts"></div>
+                </div>
+                <hr>
+                <div id="search_similar_post">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;POST - Search Similar Posts - "/search/similar-post"<button class="btn btn-primary float-right" id="btn-request-search_similar_post" type="button" onclick="OnClickRunRequest(&quot;search_similar_post&quot;)">Run Request</button></h2>
+                    <p>Search for similar contributions. This compares based on our AI results and returns the closest posts using Knn Search. If the post has not been written in the last 100 days / has NSFW content and does not contain English elements, it will be answered with a status "failed". <br>Parameters&nbsp;in body as a json-object:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-3">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Author</span></div><input class="form-control" type="text" id="txt-search-similar-author" value="action-chain">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-7">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Permlink</span></div><input class="form-control" type="text" id="txt-search-similar-permlink" value="training-with-x-hive-posts-our-ai-is-now-powerful">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-2">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-search-similar-amount" value="7" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-search_similar_post"></div>
+                </div>
+                <hr>
+                <div id="search_accounts">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;POST - Search for Accounts - "/search/accounts"<button class="btn btn-primary float-right" id="btn-request-search_accounts" type="button" onclick="OnClickRunRequest(&quot;search_accounts&quot;)">Run Request</button></h2>
+                    <p>Search by topics and get matching posts from the last 100 days. You can sort by score/oldest/latest or by personalised sorting, which requires the username and access token. If the account does not agreed to our Privacy Policy or has no posts/votes in the last 100 days, this will fail!<br>Parameters&nbsp;in body as a json-object:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-9">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">query</span></div><input class="form-control" type="text" id="txt-search-accounts-query" value="coding">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-3">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-search-accounts-amount" value="15" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-search_accounts"></div>
+                </div>
+                <hr>
+                <div id="search_similar_accounts">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;POST - Search Similar Accounts - "/search/similar-account"<button class="btn btn-primary float-right" id="btn-request-search_similar_accounts" type="button" onclick="OnClickRunRequest(&quot;search_similar_accounts&quot;)">Run Request</button></h2>
+                    <p>Search for similar contributors on HIVE. Based on the results of our AI, an account profile is created, which is then compared using Knn Search. The closest profiles are then returned. If the user does not exist or has no votes/posts in the last 100 days, a status of "failed" is returned.<br>Parameters&nbsp;in body as a json-object:<br></p>
+                    <div class="row" style="padding-bottom: 5px;">
+                        <div class="col col-md-10">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Author</span></div><input class="form-control" type="text" id="txt-search-similar-accounts-username" value="action-chain">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                        <div class="col col-md-2">
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-search-similar-accounts-amount" value="7" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-search_similar_accounts"></div>
+                </div>
+                <hr>
+                <div id="search_categories" name="search_categories">
+                    <h2 style="margin-bottom: 5px;">&nbsp; &nbsp; &nbsp;POST - Search by Categories - "/search/category"<button class="btn btn-primary float-right" id="btn-request-search_categories" type="button" onclick="OnClickRunRequest(&quot;search_categories&quot;)">Run Request</button></h2>
+                    <p>Search categories based on posts from the last few days. Therefore, all posts can be voted. 46 individual categories can be selected.&nbsp;<br>Parameters&nbsp;in body as a json-object:<br></p>
+                    <div class="row text-center d-xl-flex justify-content-xl-center align-items-xl-center" style="padding-bottom: 5px;">
+                        <div class="col text-center" id="container-search-categories"><a class="badge badge-primary" id="badge-search-cats-animal" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;animal&quot;)">animal X</a><a class="badge badge-primary" id="badge-search-cats-art" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;art&quot;)">art X</a><a class="badge badge-primary" id="badge-search-cats-beauty" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;beauty&quot;)"><strong>beauty</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-business" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;business&quot;)">business X</a><a class="badge badge-primary" id="badge-search-cats-challenge" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;challenge&quot;)">challenge&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-comedy" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;comedy&quot;)">comedy X</a><a class="badge badge-primary" id="badge-search-cats-computer" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;computer&quot;)"><strong>computer&nbsp;</strong>X</a><a class="badge badge-primary" id="badge-search-cats-covid-19" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;covid-19&quot;)"><strong>covid-19</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-crypto" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;crypto&quot;)">crypto&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-culture" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;culture&quot;)">culture X</a><a class="badge badge-primary" id="badge-search-cats-development" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;development&quot;)">development X</a><a class="badge badge-primary" id="badge-search-cats-economy" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;economy&quot;)">economy X</a><a class="badge badge-primary" id="badge-search-cats-education" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;education&quot;)">education X</a><a class="badge badge-primary" id="badge-search-cats-family" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;family&quot;)"><strong>family</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-fashion" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;fashion&quot;)">fashion X</a><a class="badge badge-primary" id="badge-search-cats-film" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;film&quot;)"><strong>film</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-finance" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;finance&quot;)"><strong>finance&nbsp;</strong>X</a><a class="badge badge-primary" id="badge-search-cats-food" style="margin: 7px;padding: 7px;font-size: 16px;display: none;" href="javascript:removeCategory(&quot;food&quot;)">food X</a><a class="badge badge-primary" id="badge-search-cats-future" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;future&quot;)"><strong>future</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-gaming" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;gaming&quot;)">gaming&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-gardening" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;gardening&quot;)"><strong>gardening</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-health" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;health&quot;)"><strong>health</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-history" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;history&quot;)">history&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-introduceyourself" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;introduceyourself&quot;)">introduceyourself X</a><a class="badge badge-primary" id="badge-search-cats-lifestyle" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;lifestyle&quot;)">lifestyle X</a><a class="badge badge-primary" id="badge-search-cats-media" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;media&quot;)"><strong>media</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-motivation" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;motivation&quot;)">motivation X</a><a class="badge badge-primary" id="badge-search-cats-music" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;music&quot;)">music X</a><a class="badge badge-primary" id="badge-search-cats-nature" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;nature&quot;)">nature X</a><a class="badge badge-primary" id="badge-search-cats-news" style="margin: 7px;padding: 7px;font-size: 16px;/*display: none;*/" href="javascript:removeCategory(&quot;news&quot;)">news X</a><a class="badge badge-primary" id="badge-search-cats-philosophy" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;philosophy&quot;)"><strong>philosophy&nbsp;</strong>X</a><a class="badge badge-primary" id="badge-search-cats-photography" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;photography&quot;)"><strong>photography</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-politic" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;politic&quot;)">politic X</a><a class="badge badge-primary" id="badge-search-cats-psychology" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;psychology&quot;)"><strong>psychology</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-purpose" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;purpose&quot;)">purpose X</a><a class="badge badge-primary" id="badge-search-cats-science" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;science&quot;)"><strong>science</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-society" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;society&quot;)"><strong>society</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-statistics" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;statistics&quot;)">statistics X</a><a class="badge badge-primary" id="badge-search-cats-story" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;story&quot;)"><strong>story</strong>&nbsp;X</a><a class="badge badge-primary" id="badge-search-cats-sports" style="margin: 7px;padding: 7px;font-size: 16px;/*display: none;*/" href="javascript:removeCategory(&quot;sports&quot;)">sports X</a><a class="badge badge-primary" id="badge-search-cats-technology" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;technology&quot;)"><strong>technology&nbsp;</strong>X</a><a class="badge badge-primary" id="badge-search-cats-trading" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;trading&quot;)">trading X</a><a class="badge badge-primary" id="badge-search-cats-travel" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;travel&quot;)">travel X</a><a class="badge badge-primary" id="badge-search-cats-tutorial" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;tutorial&quot;)">tutorial X</a><a class="badge badge-primary" id="badge-search-cats-wisdom" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;wisdom&quot;)">wisdom X</a><a class="badge badge-primary" id="badge-search-cats-work" style="margin: 7px;padding: 7px;font-size: 16px;display:none" href="javascript:removeCategory(&quot;work&quot;)"><strong>work&nbsp;</strong>X</a></div>
+                        <div class="col text-center col-md-2">
+                            <div class="dropdown"><button class="btn btn-success dropdown-toggle" aria-expanded="false" data-toggle="dropdown" type="button" style="width: 100%;">Add Category</button>
+                                <div class="dropdown-menu" style="max-height: 250px;overflow: scroll;overflow-x: hidden;"><a class="dropdown-item text-center" id="add-search-cats-animal" href="javascript:addCategory(&quot;animal&quot;)">Animal</a><a class="dropdown-item text-center" id="add-search-cats-art" href="javascript:addCategory(&quot;art&quot;)">Art</a><a class="dropdown-item text-center" id="add-search-cats-beauty" href="javascript:addCategory(&quot;beauty&quot;)">Beauty</a><a class="dropdown-item text-center" id="add-search-cats-business" href="javascript:addCategory(&quot;business&quot;)">Business</a><a class="dropdown-item text-center" id="add-search-cats-challenge" href="javascript:addCategory(&quot;challenge&quot;)">Challenge</a><a class="dropdown-item text-center" id="add-search-cats-comedy" href="javascript:addCategory(&quot;comedy&quot;)">Comedy</a><a class="dropdown-item text-center" id="add-search-cats-computer" href="javascript:addCategory(&quot;computer&quot;)">Computer</a><a class="dropdown-item text-center" id="add-search-cats-covid-19" href="javascript:addCategory(&quot;covid-19&quot;)">Covid-19</a><a class="dropdown-item text-center" id="add-search-cats-crypto" href="javascript:addCategory(&quot;crypto&quot;)">Crypto</a><a class="dropdown-item text-center" id="add-search-cats-culture" href="javascript:addCategory(&quot;culture&quot;)">Culture</a><a class="dropdown-item text-center" id="add-search-cats-development" href="javascript:addCategory(&quot;development&quot;)">Development</a><a class="dropdown-item text-center" id="add-search-cats-economy" href="javascript:addCategory(&quot;economy&quot;)">Economy</a><a class="dropdown-item text-center" id="add-search-cats-education" href="javascript:addCategory(&quot;education&quot;)">Education</a><a class="dropdown-item text-center" id="add-search-cats-family" href="javascript:addCategory(&quot;family&quot;)">Family</a><a class="dropdown-item text-center" id="add-search-cats-fashion" href="javascript:addCategory(&quot;fashion&quot;)">Fashion</a><a class="dropdown-item text-center" id="add-search-cats-film" href="javascript:addCategory(&quot;film&quot;)">Film</a><a class="dropdown-item text-center" id="add-search-cats-finance" href="javascript:addCategory(&quot;finance&quot;)">Finance</a><a class="dropdown-item text-center" id="add-search-cats-food" href="javascript:addCategory(&quot;food&quot;)">Food</a><a class="dropdown-item text-center" id="add-search-cats-future" href="javascript:addCategory(&quot;future&quot;)">Future</a><a class="dropdown-item text-center" id="add-search-cats-gaming" href="javascript:addCategory(&quot;gaming&quot;)">Gaming</a><a class="dropdown-item text-center" id="add-search-cats-gardening" href="javascript:addCategory(&quot;gardening&quot;)">Gardening</a><a class="dropdown-item text-center" id="add-search-cats-health" href="javascript:addCategory(&quot;health&quot;)">Health</a><a class="dropdown-item text-center" id="add-search-cats-history" href="javascript:addCategory(&quot;history&quot;)">History</a><a class="dropdown-item text-center" id="add-search-cats-introduceyourself" href="javascript:addCategory(&quot;introduceyourself&quot;)">Introduce Yourself</a><a class="dropdown-item text-center" id="add-search-cats-lifestyle" href="javascript:addCategory(&quot;lifestyle&quot;)">Lifestyle</a><a class="dropdown-item text-center" id="add-search-cats-media" href="javascript:addCategory(&quot;media&quot;)">Media</a><a class="dropdown-item text-center" id="add-search-cats-motivation" href="javascript:addCategory(&quot;motivation&quot;)">Motivation</a><a class="dropdown-item text-center" id="add-search-cats-music" href="javascript:addCategory(&quot;music&quot;)">Music</a><a class="dropdown-item text-center" id="add-search-cats-nature" href="javascript:addCategory(&quot;nature&quot;)">Nature</a><a class="dropdown-item text-center" id="add-search-cats-news" href="javascript:addCategory(&quot;news&quot;)">News</a><a class="dropdown-item text-center" id="add-search-cats-philosophy" href="javascript:addCategory(&quot;philosophy&quot;)">Philosophy</a><a class="dropdown-item text-center" id="add-search-cats-photography" href="javascript:addCategory(&quot;photography&quot;)">Photography</a><a class="dropdown-item text-center" id="add-search-cats-politic" href="javascript:addCategory(&quot;politic&quot;)">Politics</a><a class="dropdown-item text-center" id="add-search-cats-psychology" href="javascript:addCategory(&quot;psychology&quot;)">Psychology</a><a class="dropdown-item text-center" id="add-search-cats-purpose" href="javascript:addCategory(&quot;purpose&quot;)">Purpose</a><a class="dropdown-item text-center" id="add-search-cats-science" href="javascript:addCategory(&quot;science&quot;)">Science</a><a class="dropdown-item text-center" id="add-search-cats-society" href="javascript:addCategory(&quot;society&quot;)">Society</a><a class="dropdown-item text-center" id="add-search-cats-statistics" href="javascript:addCategory(&quot;statistics&quot;)">Statistics</a><a class="dropdown-item text-center" id="add-search-cats-story" href="javascript:addCategory(&quot;story&quot;)">Story</a><a class="dropdown-item text-center" id="add-search-cats-sports" href="javascript:addCategory(&quot;sports&quot;)">Sports</a><a class="dropdown-item text-center" id="add-search-cats-technology" href="javascript:addCategory(&quot;technology&quot;)">Technology</a><a class="dropdown-item text-center" id="add-search-cats-trading" href="javascript:addCategory(&quot;trading&quot;)">Trading</a><a class="dropdown-item text-center" id="add-search-cats-travel" href="javascript:addCategory(&quot;travel&quot;)">Travel</a><a class="dropdown-item text-center" id="add-search-cats-tutorial" href="javascript:addCategory(&quot;tutorial&quot;)">Tutorial</a><a class="dropdown-item text-center" id="add-search-cats-wisdom" href="javascript:addCategory(&quot;wisdom&quot;)">Wisdom</a><a class="dropdown-item text-center" id="add-search-cats-work" href="javascript:addCategory(&quot;work&quot;)">Work</a></div>
+                            </div>
+                            <div class="input-group" style="margin-top: 5;margin-bottom: 5;padding-top: 15px;">
+                                <div class="input-group-prepend"><span class="input-group-text">Amount</span></div><input class="form-control" type="text" id="txt-search-categories-amount" value="7" inputmode="numeric">
+                                <div class="input-group-append"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="request-search_categories"></div>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div id="request-template" style="display: none;">
+            <h5 class="text-center" name="request-url">URL:&nbsp;</h5>
+            <div name="loading-animator" style="background: #c8c8c8;">
+                <div class="text-center" style="margin: auto;">
+                    <div class="lds-roller">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <p style="color: rgb(40,38,38);">Loading</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic" style="/*bottom: 0;*/width: 100%;padding: 40px;/*padding-bottom: 0px;*/">
+        <footer style="bottom: 0;">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="javascript: openHiveSite(&quot;/@action-chain&quot;)">About us</a></li>
+                <li class="list-inline-item"><a href="https://github.com/hive-discover" target="_blank">GitHub</a></li>
+                <li class="list-inline-item"><a href="docs.html">Developer Docs</a></li>
+                <li class="list-inline-item"><a href="legal/disclaimer.html">Disclaimer</a></li>
+                <li class="list-inline-item"><a href="legal/impressum.html">Impressum</a></li>
+                <li class="list-inline-item"><a href="legal/privacy-policy.html">Privacy</a></li>
+            </ul>
+            <p class="copyright">Non-Profit&nbsp; -&nbsp; Version 0.8 beta<br></p>
+            <p class="copyright">Hive Discover - © 2021&nbsp;</p>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
+    <script src="https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="https://github.com/mouse0270/bootstrap-notify/releases/download/3.1.3/bootstrap-notify.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+</html>
