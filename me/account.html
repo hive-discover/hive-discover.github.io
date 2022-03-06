@@ -22,10 +22,6 @@
     <link rel="stylesheet" href="../assets/fonts/material-icons.min.css">
     <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/styles.min.css">
-    <link rel="stylesheet" href="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="https://api.hive-discover.tech/proxy?url=https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/css/bootstrap-slider.min.css">
-    <link rel="stylesheet" href="https://api.hive-discover.tech/proxy?url=https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="https://api.hive-discover.tech/proxy?url=https://use.fontawesome.com/releases/v5.2.0/css/all.css" crossorigin="anonymous">
 <link href="https://raw.githubusercontent.com/hive-discover/hive-discover/main/Logo/Favicon.jpg" rel="icon">
 </head>
 
@@ -60,7 +56,7 @@
                 </div>
             </nav>
             <div class="container hero">
-                <h1 class="text-center" id="label-welcome-username">Welcome,&nbsp;</h1>
+                <h1 class="text-center" id="label-welcome-username" style="margin-top: 50px;">Welcome,&nbsp;</h1>
                 <div id="account-loading-container" style="display: none;">
                     <div class="text-center" style="margin: auto;">
                         <div class="lds-roller">
@@ -88,7 +84,6 @@
                     </div>
                     <p style="color: rgb(174,174,174);">Loading</p>
                 </div>
-                <div id="chart-account-categories"></div>
                 <div class="row" style="margin: auto;">
                     <div class="col">
                         <p id="account-languages" style="text-align: center;"></p>
@@ -97,7 +92,9 @@
                         <p id="account-element-count" style="text-align: center;"></p>
                     </div>
                 </div>
-                <hr>
+                <h5 id="h-acc-chart-title" style="display: none;margin-top: 25px;">Our AI thinks that these topics might fit you</h5>
+                <div id="chart-account-cats" style="display: none;"><canvas data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[],&quot;datasets&quot;:[]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:true,&quot;reverse&quot;:false,&quot;position&quot;:&quot;right&quot;},&quot;title&quot;:{&quot;display&quot;:true,&quot;text&quot;:&quot;&quot;}}}"></canvas></div>
+                <hr style="margin-top: 45px;">
                 <h1 id="heading-similar-accounts" style="margin-top: 0;display: none;">Similar Accounts</h1>
                 <div class="row text-center d-xl-flex justify-content-xl-center" id="similar-accounts">
                     <div class="col col-md-4" id="card-row-1"></div>
@@ -153,17 +150,7 @@
     </div>
     <script src="../assets/js/jquery.min.js"></script>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.rawgit.com/digistate/resouces/master/multipleFilterMasonry.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.rawgit.com/desandro/masonry/master/dist/masonry.pkgd.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.2/bootstrap-slider.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://github.com/mouse0270/bootstrap-notify/releases/download/3.1.3/bootstrap-notify.min.js"></script>
-    <script src="https://api.hive-discover.tech/proxy?url=https://www.gstatic.com/charts/51/js/jsapi_compiled_default_module.js"></script>
+    <script src="../assets/js/chart.min.js"></script>
     <script src="../assets/js/script.min.js"></script>
 </body>
 
